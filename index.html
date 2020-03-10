@@ -170,62 +170,40 @@
 	<table>
 	<tr><td><input name="bathtub" id="bathtub" size="1" /></td>
 		<td><label for="bathtub">:Bathtub</label></td>
-		<td><input name="barsink" id="barsink" size="1" /></td>
-		<td><label for="barsink">:Bar Sink</label></td>
+		<td><input name="bathroomsink" id="bathroomsink" size="1" /></td>
+		<td><label for="bathroomsink">:Bathroom Sink</label></td>
+		<td><input name="showerhead" id="showerhead" size="1" /></td>
+		<td><label for="showerhead">:Shower Head</label></td>
 		<td><input name="bidet" id="bidet" size="1" /></td>
 		<td><label for="bidet">:Bidet</label></td>
-		<td><input name="clowash" id="clowash" size="1" /></td>
-		<td><label for="clowash">:Clothes Washer</label></td>
 	</tr>
 
-	<tr><td><input name="cuspidor" id="cuspidor" size="1" /></td>
-		<td><label for="cuspidor">:Cuspidor</label></td>
-		<td><input name="dishwasher" id="dishwasher" size="1" /></td>
-		<td><label for="dishwasher">:Dishwasher</label></td>
-		<td><input name="drinkingftn" id="drinkingftn" size="1" /></td>
-		<td><label for="drinkingftn">:Drinking Ftn</label></td>
-		<td><input name="hosebib" id="hosebib" size="1" /></td>
-		<td><label for="hosebib">:Hose Bib</label></td>
+	<tr><td><input name="toilettank" id="toilettank" size="1" /></td>
+  	<td><label for="toilett">:Toilet Tank</label></td>
+  	<td><input name="toiletflush" id="toiletflush" size="1" /></td>
+  	<td><label for="toiletflush">:Toilet Flush</label></td>
+		<td><input name="urinaltank" id="urinaltank" size="1" /></td>
+		<td><label for="urinaltank">:Urinal Tank</label></td>
+		<td><input name="urinalflush" id="urinalflush" size="1" /></td>
+		<td><label for="urinalflush">:Urinal Flush</label></td>
 	</tr>
 
 	<tr><td><input name="kitchensink" id="kitchensink" size="1" /></td>
 		<td><label for="kitchensink">:Kitchen Sink</label></td>
-		<td><input name="lavatory" id="lavatory" size="1" /></td>
-		<td><label for="lavatory">:Lavatory</label></td>
-		<td><input name="laundrytub" id="laundrytub" size="1" /></td>
-		<td><label for="laundrytub">:Laundry Tub</label></td>
-		<td><input name="showerhead" id="showerhead" size="1" /></td>
-		<td><label for="showerhead">:Shower Head</label></td>
+    <td><input name="servicesink" id="servicesink" size="1" /></td>
+  	<td><label for="servicesink">:Service Sink</label></td>
+		<td><input name="dishwasher" id="dishwasher" size="1" /></td>
+		<td><label for="dishwasher">:Dish Washer</label></td>
+		<td><input name="drinkingfountain" id="drinkingfountain" size="1" /></td>
+		<td><label for="drinkingfountain">:Drinking Fountain</label></td>
 	</tr>
 
-	<tr><td><input name="servicesink" id="servicesink" size="1" /></td>
-		<td><label for="servicesink">:Service Sink</label></td>
-		<td><input name="urinalpedest" id="urinalpedest" size="1" /></td>
-		<td><label for="urinalpedest">:Urinal Pedest</label></td>
-		<td><input name="urinalwall" id="urinalwall" size="1" /></td>
-		<td><label for="urinalwall">:Urinal Wall</label></td>
-		<td><input name="urinaltank" id="urinaltank" size="1" /></td>
-		<td><label for="urinaltank">:Urinal Tank</label></td>
+	<tr><td><input name="washingmachine" id="washingmachine" size="1" /></td>
+    <td><label for="washingmachine">:Washing Machine</label></td>
+		<td><input name="laundrytrays" id="laundrytrays" size="1" /></td>
+		<td><label for="laundrytrays">:Laundry Trays</label></td>
 	</tr>
 
-	<tr><td><input name="washsink" id="washsink" size="1" /></td>
-		<td><label for="washsink">:Wash Sink</label></td>
-		<td><input name="wcflushometr" id="wcflushometr" size="1" /></td>
-		<td><label for="wcflushometr">:WC Flushometer</label></td>
-		<td><input name="wctank" id="wctank" size="1" /></td>
-		<td><label for="wctank">:WC Tank</label></td>
-		<td><input name="icemachine" id="icemachine" size="1" /></td>
-		<td><label for="icemachine">:Ice Machine</label></td>
-	</tr>
-	<tr><td><input name="comdishwasher" id="comdishwasher" size="1" /></td>
-		<td><label for="comdishwasher">:Com Dishwasher</label></td>
-		<td><input name="baysink" id="baysink" size="1" /></td>
-		<td><label for="baysink">:Bay Sink,/Bay</label></td>
-		<td><input name="spraydisposal" id="spraydisposal" size="1" /></td>
-		<td><label for="spraydisposal">:Spray Disposal</label></td>
-		<td></td>
-		<td></td>
-	</tr>
 	</table>
 
 	<p><label>Additional: <input name="addfixunits" size="5" /></label> fixture units</p>
@@ -233,16 +211,17 @@
 
 	<fieldset>
 		<p><label>Continuous Demand: <input name="condem" size="5" value="0" /></label> gpm</p>
-		<button type="submit" class="submit">Submit</button>
+		<button type="submit" class="submit" onclick="calculate()">Submit</button>
 	</fieldset>
 	</form>
 </div>
 <div id="footer">
-	<p>Email <a href="mailto:helpdesk@bloomington.in.gov">helpdesk@bloomington.in.gov</a>
-	or phone 349-3454 for assistance.
-	Information &amp; Technology Service Department, City of Bloomington, IN
+	<p>Email <a href="zimmermant@bloomington.in.gov">zimmermant@bloomington.in.gov</a>
+ for assistance.
+	Adapted from Magnatube Service Sizer By Z. 2020
 	<!-- Process Time: 0.00020599365234375 -->
 </p>
 
 </div></body>
+<script type="text/javascript" src="calc.java"></script>
 </html>
