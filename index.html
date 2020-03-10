@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<link rel="SHORTCUT ICON" href="/favicon.ico" />
+	<style type="text/css">
+		@import url("/skins/isotope/skin.css");
+		@import url('/magnatube/skins/local/screen.css');
+	</style>
+	<title>Magnitube Service Sizer</title>
+</head>
+<body>
+<div id="banner">
+	<h1><a href="/magnatube">Magnatube Service Sizer</a></h1><h2>City of Bloomington, Indiana</h2>
+</div>
+<div id="mainContent">
+	<form action="process.php" method="post">
+	<fieldset><legend>SIZING CALCULATION</legend>
+	<table>
+	<tr><td><label for="locationType">Location Type:</label></td>
+		<td><select name="locationType" id="locationType">
+				<option>Single Family Residence</option>
+				<option>Multiple Family Residence</option>
+				<option>Commercial</option>
+			</select>
+		</td>
+	</tr>
+	<tr><td><label for="suploc">Supply Location:</label></td>
+		<td><input name="suploc" id="suploc" size="20" /></td>
+	</tr>
+	<tr><td colspan="2"><label><input name="suppress" size="5" /> psi</label>, supply pressure available during demand</td></tr>
+	<tr><td><label for="demloc">Demand Location:</label></td>
+		<td><input name="demloc" id="demloc" size="20" /></td>
+	</tr>
+	<tr><td colspan="2">
+			<label><input name="demflow" size="5" /> gpm</label> demand flowing at
+			<label><input name="dempress" size="5" /> psi</label> pressure
+		</td>
+	</tr>
+	<tr><td colspan="2"><label><input name="demcalc" type="checkbox" value="Yes" checked="checked" /> Click to have Demand Size figured by DEMAND CALCULATION</label></td></tr>
+	</table>
+	</fieldset>
+
+	<fieldset><legend>HEAD LOSS DATA</legend>
+	<table>
+	<tr><td><label for="elevdiff">Elevation Difference:</label></td>
+		<td><input name="elevdiff" id="elevdiff" size="5" value="0" /> ft (negative if demand location is lower than supply)</td></tr>
+	<tr><td><label for="pipelen">Pipe Length:</label></td>
+		<td><input name="pipelen" id="pipelen" size="5" value="0" /> ft</td></tr>
+	<tr><td><label for="otherloss">Other loss in equivalent pipe length:</label></td>
+		<td><input name="otherloss" id="otherloss" size="5" value="0" /> ft</td></tr>
+	</table>
+
+	<table>
+	<tr><th colspan="10">Number of Values &amp; fittings:</th></tr>
+	<tr><td><input name="corpstop" id="corpstop" size="1" value="1" /></td>
+		<td><label for="corpstop">:Corp Stop</label></td>
+		<td><input name="curbstop" id="curbstop" size="1" value="1" /></td>
+		<td><label for="curbstop">:Curb Stop</label></td>
+		<td><input name="gatevalve" id="gatevalve" size="1" /></td>
+		<td><label for="gatevalve">:Gate Valve</label></td>
+		<td><input name="ballvalve" id="ballvalve" size="1" value="1" /></td>
+		<td><label for="ballvalve">:Ball Valve</label></td>
+		<td><input name="anglevalv" id="anglevalv" size="1" /></td>
+		<td><label for="anglevalv">:Angle Valve</label></td>
+	</tr>
+
+	<tr><td><input name="bflyvalve" id="bflyvalve" size="1" /></td>
+		<td><label for="bflyvalve">:Bfly Valve</label></td>
+		<td><input name="swingchk" id="swingchk" size="1" /></td>
+		<td><label for="swingchk">:Swing Chk</label></td>
+		<td><input name="expdcnctr" id="expdcnctr" size="1" /></td>
+		<td><label for="expdcnctr">:Side Tee</label></td>
+		<td><input name="straightt" id="straightt" size="1" /></td>
+		<td><label for="straightt">:Straight T</label></td>
+		<td><input name="stdelbow" id="stdelbow" size="1" value="1" /></td>
+		<td><label for="stdelbow">:Std Elbow</label></td>
+	</tr>
+
+	<tr><td><input name="longelbow" id="longelbow" size="1" /></td>
+		<td><label for="longelbow">:Long Elbow</label></td>
+		<td><input name="fortyfiveelbow" id="fortyfiveelbow" size="1" /></td>
+		<td><label for="fortyfiveelbow">:45 Elbow</label></td>
+		<td><input name="yto1" id="yto1" size="1" value="1" /></td>
+		<td><label for="yto1">:''Y'' to 1''</label></td>
+		<td><input name="reducer1" id="reducer1" size="1" /></td>
+		<td><label for="reducer1">:Reducer/1''</label></td>
+		<td><input name="coupling" id="coupling" size="1" /></td>
+		<td><label for="coupling">:Coupling</label></td>
+	</tr>
+	</table>
+
+	<table>
+	<tr><td><label for="BFL">Backflow Prev:</label></td>
+		<td><input name="BFL" id="BFL" size="5" />psi</td></tr>
+	<tr><td><label for="WML">Water Meter:</label></td>
+		<td><input name="WML" id="WML" size="5" value="6.6" />psi</td></tr>
+	<tr><td><label for="PRL">PRV:</label></td>
+		<td><input name="PRL" id="PRL" size="5" />psi</td></tr>
+	<tr><td><label for="OL">Other:</label></td>
+		<td><input name="OL" id="OL" size="5" />psi</td></tr>
+	</table>
+	</fieldset>
+
+	<fieldset><legend>Design Calculation</legend>
+	<table>
+	<tr><td><label for="pervel">Permitted Velocity:</label></td>
+		<td><input name="pervel" id="pervel" size="5" value="8" /></td></tr>
+	<tr><td><label for="pipetype">Pipe Type:</label></td>
+		<td><select name="pipetype" id="pipetype">
+				<option>CUK</option>
+				<option>CUL</option>
+				<option>CUM</option>
+				<option>BRS</option>
+				<option>POL</option>
+				<option>P10</option>
+				<option>P15</option>
+				<option>P20</option>
+				<option>CI2</option>
+				<option>DI2</option>
+				<option>SSP</option>
+				<option>PC9</option>
+			</select>
+		</td>
+	</tr>
+	<tr><td><label for="pipesize">Pipe Size:</label></td>
+		<td><select name="pipesize" id="pipesize">
+				<option>Calculate Best Fit</option>
+				<option>3/4</option>
+				<option>1</option>
+				<option>1 1/4</option>
+				<option>1 1/2</option>
+				<option>2</option>
+				<option>2 1/2</option>
+				<option>3</option>
+				<option>3 1/2</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+				<option>8</option>
+				<option>10</option>
+				<option>12</option>
+			</select>
+		</td>
+	</tr>
+	</table>
+	</fieldset>
+
+	<fieldset><legend>DEMAND CALCULATION</legend>
+	<table>
+	<tr><td><label for="preflush">Predominatly Flushometers:</label></td>
+		<td><select name="preflush" id="preflush">
+				<option>Yes</option>
+				<option selected="selected">No</option>
+			</select>
+		</td>
+	</tr>
+
+	<tr><td><label for="publicuse">Public Use:</label></td>
+		<td><select name="publicuse" id="publicuse">
+				<option>Yes</option>
+				<option selected="selected">No</option>
+			</select>
+		</td>
+	</tr>
+	</table>
+	</fieldset>
+
+	<fieldset><legend>Number of Fixtures</legend>
+	<table>
+	<tr><td><input name="bathtub" id="bathtub" size="1" /></td>
+		<td><label for="bathtub">:Bathtub</label></td>
+		<td><input name="barsink" id="barsink" size="1" /></td>
+		<td><label for="barsink">:Bar Sink</label></td>
+		<td><input name="bidet" id="bidet" size="1" /></td>
+		<td><label for="bidet">:Bidet</label></td>
+		<td><input name="clowash" id="clowash" size="1" /></td>
+		<td><label for="clowash">:Clothes Washer</label></td>
+	</tr>
+
+	<tr><td><input name="cuspidor" id="cuspidor" size="1" /></td>
+		<td><label for="cuspidor">:Cuspidor</label></td>
+		<td><input name="dishwasher" id="dishwasher" size="1" /></td>
+		<td><label for="dishwasher">:Dishwasher</label></td>
+		<td><input name="drinkingftn" id="drinkingftn" size="1" /></td>
+		<td><label for="drinkingftn">:Drinking Ftn</label></td>
+		<td><input name="hosebib" id="hosebib" size="1" /></td>
+		<td><label for="hosebib">:Hose Bib</label></td>
+	</tr>
+
+	<tr><td><input name="kitchensink" id="kitchensink" size="1" /></td>
+		<td><label for="kitchensink">:Kitchen Sink</label></td>
+		<td><input name="lavatory" id="lavatory" size="1" /></td>
+		<td><label for="lavatory">:Lavatory</label></td>
+		<td><input name="laundrytub" id="laundrytub" size="1" /></td>
+		<td><label for="laundrytub">:Laundry Tub</label></td>
+		<td><input name="showerhead" id="showerhead" size="1" /></td>
+		<td><label for="showerhead">:Shower Head</label></td>
+	</tr>
+
+	<tr><td><input name="servicesink" id="servicesink" size="1" /></td>
+		<td><label for="servicesink">:Service Sink</label></td>
+		<td><input name="urinalpedest" id="urinalpedest" size="1" /></td>
+		<td><label for="urinalpedest">:Urinal Pedest</label></td>
+		<td><input name="urinalwall" id="urinalwall" size="1" /></td>
+		<td><label for="urinalwall">:Urinal Wall</label></td>
+		<td><input name="urinaltank" id="urinaltank" size="1" /></td>
+		<td><label for="urinaltank">:Urinal Tank</label></td>
+	</tr>
+
+	<tr><td><input name="washsink" id="washsink" size="1" /></td>
+		<td><label for="washsink">:Wash Sink</label></td>
+		<td><input name="wcflushometr" id="wcflushometr" size="1" /></td>
+		<td><label for="wcflushometr">:WC Flushometer</label></td>
+		<td><input name="wctank" id="wctank" size="1" /></td>
+		<td><label for="wctank">:WC Tank</label></td>
+		<td><input name="icemachine" id="icemachine" size="1" /></td>
+		<td><label for="icemachine">:Ice Machine</label></td>
+	</tr>
+	<tr><td><input name="comdishwasher" id="comdishwasher" size="1" /></td>
+		<td><label for="comdishwasher">:Com Dishwasher</label></td>
+		<td><input name="baysink" id="baysink" size="1" /></td>
+		<td><label for="baysink">:Bay Sink,/Bay</label></td>
+		<td><input name="spraydisposal" id="spraydisposal" size="1" /></td>
+		<td><label for="spraydisposal">:Spray Disposal</label></td>
+		<td></td>
+		<td></td>
+	</tr>
+	</table>
+
+	<p><label>Additional: <input name="addfixunits" size="5" /></label> fixture units</p>
+	</fieldset>
+
+	<fieldset>
+		<p><label>Continuous Demand: <input name="condem" size="5" value="0" /></label> gpm</p>
+		<button type="submit" class="submit">Submit</button>
+	</fieldset>
+	</form>
+</div>
+<div id="footer">
+	<p>Email <a href="mailto:helpdesk@bloomington.in.gov">helpdesk@bloomington.in.gov</a>
+	or phone 349-3454 for assistance.
+	Information &amp; Technology Service Department, City of Bloomington, IN
+	<!-- Process Time: 0.00020599365234375 -->
+</p>
+
+</div></body>
+</html>
