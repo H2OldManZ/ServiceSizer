@@ -18,7 +18,7 @@ h3 { margin:0em; }
 p { margin-top:1em; margin-bottom:1em; }
 
 form {}
-fieldset {margin-right: 30px}
+fieldset {margin:auto;}
 label { font-weight:bold; }
 .required { color:red; background-color:inherit; }
 input { font-family:sans-serif; font-size:9pt; }
@@ -70,7 +70,7 @@ div.sidebar ul a { display:inline; font-weight:bold; }
 /* Breadcrumb class for navigational items */
 div.breadcrumbs { font-size:10pt; font-weight:bold; }
 
-#mainContent { background-color:inherit; padding-left:15px; padding-left:15px; margin:auto }
+#mainContent { background-color:inherit; padding-left:15px; padding-right:15px; margin:auto }
 div.contextualMenu { background-color:#fba500; color:black; border:2px solid black; margin-bottom:1em; margin-top:1em; }
 div.contextualMenu div.titleBar { background:inherit; display:inline; color:white; font-size:12pt; font-weight:bold; border:0; padding-left:1em; padding-right:0; }
 div.contextualMenu a { padding-left:1em; padding-right:1em; font-weight:bold; color:black; }
