@@ -205,14 +205,18 @@
 	</tr>
 
 	</table>
-
-	<p><label>Additional: <input name="addfixunits" size="5" /></label> fixture units</p>
+  <p/>
+	<p><label>Additional: <input name="addfixunits" size="5" id="addfixunits" /></label> fixture units</p>
+  <p><label>Continuous Demand: <input name="condem" size="5" value="0" id="condem"/></label> gpm</p>
 	</fieldset>
 
 	<fieldset>
-		<p><label>Continuous Demand: <input name="condem" size="5" value="0" /></label> gpm</p>
-		<button type="submit" class="submit" onclick="calculate()">Submit</button>
+		<input type="button" value="submit" onclick="calculategpm()" />
+    <p/>
+    <p><label>Total Fixture Units: <input name="totalfixunits" id="totalfixunits" size="5" /></label></p>
+    <p><label>Calculated Needed GPM: <input name="calcgpm" id="calcgpm" size="5"/></label> gpm</p>
 	</fieldset>
+
 	</form>
 </div>
 <div id="footer">
