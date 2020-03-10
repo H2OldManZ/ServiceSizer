@@ -19,7 +19,7 @@
 		<fieldset><legend class = "ztitle">DEMAND CALCULATION</legend>
 		<table>
 		<tr><td><label for="preflush">Predominatly Flushometers:</label></td>
-			<td><select name="preflush" id="preflush">
+			<td><select name="preflush" id="preflush" onchange="calculategpm()">
 					<option>Yes</option>
 					<option selected="selected">No</option>
 				</select>
@@ -27,7 +27,7 @@
 		</tr>
 
 		<tr><td><label for="publicuse">Public Use:</label></td>
-			<td><select name="publicuse" id="publicuse">
+			<td><select name="publicuse" id="publicuse" onchange="calculategpm()">
 					<option>Yes</option>
 					<option selected="selected">No</option>
 				</select>
@@ -39,56 +39,57 @@
 
 		<legend>Number of Fixtures</legend>
 		<table>
-		<tr><td><input name="bathtub" id="bathtub" size="1" /></td>
+		<tr><td><input name="bathtub" id="bathtub" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="bathtub">:Bathtub</label></td>
-			<td><input name="bathroomsink" id="bathroomsink" size="1" /></td>
+			<td><input name="bathroomsink" id="bathroomsink" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="bathroomsink">:Bathroom Sink</label></td>
-			<td><input name="showerhead" id="showerhead" size="1" /></td>
+			<td><input name="showerhead" id="showerhead" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="showerhead">:Shower Head</label></td>
-			<td><input name="bidet" id="bidet" size="1" /></td>
+			<td><input name="bidet" id="bidet" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="bidet">:Bidet</label></td>
 		</tr>
 
-		<tr><td><input name="toilettank" id="toilettank" size="1" /></td>
+		<tr><td><input name="toilettank" id="toilettank" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="toilett">:Toilet Tank</label></td>
-			<td><input name="toiletflush" id="toiletflush" size="1" /></td>
+			<td><input name="toiletflush" id="toiletflush" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="toiletflush">:Toilet Flush</label></td>
-			<td><input name="urinaltank" id="urinaltank" size="1" /></td>
+			<td><input name="urinaltank" id="urinaltank" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="urinaltank">:Urinal Tank</label></td>
-			<td><input name="urinalflush" id="urinalflush" size="1" /></td>
+			<td><input name="urinalflush" id="urinalflush" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="urinalflush">:Urinal Flush</label></td>
 		</tr>
 
-		<tr><td><input name="kitchensink" id="kitchensink" size="1" /></td>
+		<tr><td><input name="kitchensink" id="kitchensink" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="kitchensink">:Kitchen Sink</label></td>
-			<td><input name="servicesink" id="servicesink" size="1" /></td>
+			<td><input name="servicesink" id="servicesink" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="servicesink">:Service Sink</label></td>
-			<td><input name="dishwasher" id="dishwasher" size="1" /></td>
+			<td><input name="dishwasher" id="dishwasher" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="dishwasher">:Dish Washer</label></td>
-			<td><input name="drinkingfountain" id="drinkingfountain" size="1" /></td>
+			<td><input name="drinkingfountain" id="drinkingfountain" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="drinkingfountain">:Drinking Fountain</label></td>
 		</tr>
 
-		<tr><td><input name="washingmachine" id="washingmachine" size="1" /></td>
+		<tr><td><input name="washingmachine" id="washingmachine" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="washingmachine">:Washing Machine</label></td>
-			<td><input name="laundrytrays" id="laundrytrays" size="1" /></td>
+			<td><input name="laundrytrays" id="laundrytrays" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="laundrytrays">:Laundry Trays</label></td>
 		</tr>
 
 		</table>
 		<p/>
-		<p><label>Additional: <input name="addfixunits" size="5"  value = "0" id="addfixunits" /></label> fixture units</p>
-		<p><label>Continuous Demand: <input name="condem" size="5" value = "0" id="condem"/></label> gpm</p>
+		<p><label>Additional: <input name="addfixunits" size="5"   id="addfixunits" type="number" onchange="calculategpm()"/></label> fixture units</p>
+		<p><label>Continuous Demand: <input name="condem" size="5"  id="condem" type="number" onchange="calculategpm()"/></label> gpm</p>
 
 		<p/>
 
 		<fieldset>
 			<div class = "center">
-			<input type="button" value="Calculate" class = "tenpt" onclick="calculategpm()" />
+			<input type="button" value="Refresh" class = "tenpt" onclick="calculategpm()" />
+			<input type="button" value="Clear" class = "tenpt" onclick="cleargpm()" />
 		</div>
 			<p/>
-			<p><label>Total Fixture Units: <input name="totalfixunits" id="totalfixunits" size="5" /></label></p>
-			<p><label>Calculated Needed GPM: <input name="calcgpm" id="calcgpm" size="5"/></label> gpm</p>
+			<p><label>Total Fixture Units: <input name="totalfixunits" value="0" id="totalfixunits" size="5" /></label></p>
+			<p><label>Calculated Needed GPM: <input name="calcgpm" value="0" id="calcgpm" size="5"/></label> gpm</p>
 		</fieldset>
 		</fieldset>
 

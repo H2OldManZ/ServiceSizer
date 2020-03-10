@@ -1,4 +1,12 @@
-var privatefixtures={
+/////Compiled March of 2020.
+////Travis Zimmerman,  City of Bloomington Utilities.
+
+///Demand calc uses 2021 ICC Plumbing Code.
+
+
+///Specific Sources of data listed with each table.
+
+var privatefixtures={   ///Private Fixture Unit Calc.  2021 ICC Plumbing Code.  TABLE E103.3(2)
     "bathtub"           : 1.4  ,
     "bidet"             : 2    ,
 	"drinkingfountain"  : 0.25 ,
@@ -15,7 +23,7 @@ var privatefixtures={
     "toiletflush" : 6
 };
 
-var publicfixtures={
+var publicfixtures={   ///Public Fixture Unit Calc.  2021 ICC Plumbing Code.  TABLE E103.3(2)
     "bathtub"           : 4    ,
 	  "bidet"              : 2    ,
     "drinkingfountain"  : 0.25 ,
@@ -32,7 +40,7 @@ var publicfixtures={
     "toiletflush"       : 10
 };
 
-var gpm={
+var gpm={   ///Not-Predominatly Flushometers.  2021 ICC Plumbing Code.  TABLE E103.3(3)
     0   :   0,
     1   :   3,
     2	:   5,
@@ -88,7 +96,7 @@ var gpm={
     5000	:593
 };
 
-var gpmflush={
+var gpmflush={   ///Predominatly Flushometers.  2021 ICC Plumbing Code.  TABLE E103.3(3)
     0 : 0,
     5	:15,
     6	:17.4,
@@ -142,7 +150,7 @@ var gpmflush={
 };
 
 
-function calculategpm() {
+function calculategpm() {  ///Calculates GPM Needs Using above tables.
         var preflush = (document.getElementById('preflush')).value;
         var publicuse = (document.getElementById('publicuse')).value;
         var bathtub = (document.getElementById('bathtub')).value;
@@ -209,3 +217,30 @@ function calculategpm() {
         document.getElementById('calcgpm').value = calculategpm
 
     }
+
+function cleargpm() {    ///Resets GPM Calc Boxes to Empty.
+
+  document.getElementById('preflush').value = "No";
+  document.getElementById('publicuse').value = "No";
+
+  document.getElementById('bathtub').value = "";
+  document.getElementById('bathroomsink').value = "";
+  document.getElementById('showerhead').value = "";
+  document.getElementById('bidet').value = "";
+  document.getElementById('toilettank').value = "";
+  document.getElementById('toiletflush').value = "";
+  document.getElementById('urinaltank').value = "";
+  document.getElementById('urinalflush').value = "";
+  document.getElementById('kitchensink').value = "";
+  document.getElementById('servicesink').value = "";
+  document.getElementById('dishwasher').value = "";
+  document.getElementById('drinkingfountain').value = "";
+  document.getElementById('washingmachine').value = "";
+  document.getElementById('laundrytrays').value = "";
+
+  document.getElementById('addfixunits').value = "";
+  document.getElementById('condem').value = "";
+
+  document.getElementById('totalfixunits').value = "0";
+  document.getElementById('calcgpm').value = "0";
+}
