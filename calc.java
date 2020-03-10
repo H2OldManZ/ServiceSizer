@@ -33,6 +33,7 @@ var publicfixtures={
 };
 
 var gpm={
+    0   :   0,
     1   :   3,
     2	:   5,
     3	:   6.5,
@@ -88,6 +89,7 @@ var gpm={
 };
 
 var gpmflush={
+    0 : 0,
     5	:15,
     6	:17.4,
     7	:19.8,
@@ -158,7 +160,7 @@ function calculategpm() {
         var washingmachine = (document.getElementById('washingmachine')).value;
         var laundrytrays = (document.getElementById('laundrytrays')).value;
         var addfixunits = parseInt((document.getElementById('addfixunits')).value);
-        var condem = (document.getElementById('condem')).value;
+        var condem = parseInt((document.getElementById('condem')).value);
 
         var fix = privatefixtures;
         if (publicuse == "Yes"){
@@ -189,12 +191,18 @@ function calculategpm() {
           totalfixunits = totalfixunits + addfixunits;
         }
 
-        var roundedfixunits = Math.round(totalfixunits);
+        totalfixunits = Math.round(totalfixunits * 10) / 10
 
-        while isNaN(gp.roundedfixunits){
-          calculatedgpm = gp.roundedfixunits
+        for (var key in gp) {
+          if (key >= totalfixunits){
+            var calculategpm = gp[key];
+            break;
+          }
         }
 
+        if (isNaN(condem) != true){
+          calculategpm = calculategpm + condem;
+        }
 
 
         document.getElementById('totalfixunits').value = totalfixunits
