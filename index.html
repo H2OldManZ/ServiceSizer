@@ -77,8 +77,8 @@
 
 		</table>
 		<p/>
-		<p><label>Additional: <input name="addfixunits" size="5"   id="addfixunits" type="number" onchange="calculategpm()"/></label> fixture units</p>
-		<p><label>Continuous Demand: <input name="condem" size="5"  id="condem" type="number" onchange="calculategpm()"/></label> gpm</p>
+		<p><label>Additional Fixture Units: <input name="addfixunits" size="5"   id="addfixunits" type="number" onchange="calculategpm()"/>units</label></p>
+		<p><label>Continuous Demand: <input name="condem" size="5"  id="condem" type="number" onchange="calculategpm()"/></label>gpm</p>
 
 		<p/>
 
@@ -90,8 +90,8 @@
 		<p/>
 		<fieldset>
 			<p/>
-			<p><label>Total Fixture Units: <input name="totalfixunits" value="0" id="totalfixunits" size="5" /></label></p>
-			<p><label>Calculated Needed GPM: <input name="calcgpm" value="0" id="calcgpm" size="5"/></label> gpm</p>
+			<p><label>Total Fixture Units: <input name="totalfixunits" value="0" id="totalfixunits" size="5" />units</label></p>
+			<p><label>Calculated Needed GPM: <input name="calcgpm" value="0" id="calcgpm" size="5"/>gpm</label></p>
 		</fieldset>
 		</fieldset>
 
@@ -102,14 +102,14 @@
 	<legend>Max Allowable Head Loss</legend>
 	<table>
 	<p/>
-	<tr><td colspan="2"><label>Supply Pressure: <input name="supplypress" id="supplypress" size="5" type="number" onchange="calculatemaxheadloss()" /> psi</label>, available during demand.</td></tr>
+	<tr><td colspan="2"><label>Supply Pressure: <input name="supplypress" id="supplypress" size="5" type="number" onchange="calculatemaxheadloss()" />gpm</label>, available during demand.</td></tr>
 	<tr><td colspan="2"><label>Customer Pressure: <input name="customerpress"  id="customerpress" size="5" type="number" onchange="calculatemaxheadloss()" /> psi</label>, required for customer.</td></tr>
 	<p/>
 	<tr><td colspan="2"><label>Elevation Diff: <input name="elevdiff"  id="elevdiff" size="5" type="number" onchange="calculatemaxheadloss()" /> ft</label>, (negative if demand location is lower than supply)</td></tr>
 	</table>
 	<p/>
 	<fieldset>
-	<label>Max Allowable Head Loss: <input name="maxheadloss" value="0" id="maxheadloss" size="5" /> ft</label>
+	<label>Max Allowable Head Loss: <input name="maxheadloss" id="maxheadloss" size="5" /> ft</label>
 	</fieldset>
 </fieldset>
 <p/>

@@ -247,10 +247,10 @@ function cleargpm() {    ///Resets GPM Calc Boxes to Empty.
 
 function calculatemaxheadloss() {
       var supplypress = parseInt((document.getElementById('supplypress')).value);
-      var customerpress = parseInt(document.getElementById('customerpress')).value);
+      var customerpress = parseInt((document.getElementById('customerpress')).value);
       var elevdiff = parseInt((document.getElementById('elevdiff')).value);
-
       var calcmaxheadloss = (elevdiff) + 2.31(supplypress-customerpress);
+
       document.getElementById('maxheadloss').value = calcmaxheadloss;
 
 }
