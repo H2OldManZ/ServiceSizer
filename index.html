@@ -108,6 +108,11 @@
 	<tr><td colspan="2"><label>Elevation Diff: <input name="elevdiff"  id="elevdiff" size="5" type="number" onchange="calculatemaxheadloss()" /> ft</label>, (negative if demand location is lower than supply)</td></tr>
 	</table>
 	<p/>
+	<div class = "center">
+	<input type="button" value="Refresh" class = "tenpt" onclick="calculatemaxheadloss()" />
+	<input type="button" value="Clear" class = "tenpt" onclick="cleargpm()" />
+</div>
+<p/>
 	<fieldset>
 	<label>Max Allowable Head Loss: <input name="maxheadloss" id="maxheadloss" size="5" /> ft</label>
 	</fieldset>
