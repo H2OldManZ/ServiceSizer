@@ -250,7 +250,20 @@ function calculatemaxheadloss() {
       var customerpress = parseInt((document.getElementById('customerpress')).value);
       var elevdiff = parseInt((document.getElementById('elevdiff')).value);
       var calcmaxheadloss = (elevdiff) + 2.31*(supplypress-customerpress);
+      if (isNaN(calcmaxheadloss) != true){
+        document.getElementById('maxheadloss').value = calcmaxheadloss;
+      }
 
-      document.getElementById('maxheadloss').value = calcmaxheadloss;
+}
 
+function clearmaxheadloss() {
+      document.getElementById('supplypress').value = "";
+      document.getElementById('customerpress').value = "";
+      document.getElementById('elevdiff').value = "";
+      document.getElementById('maxheadloss').value = "";
+
+}
+
+function calcvelocity() {
+      (((4 * gpm / 448.8) / (3.14159 * 8)) ^ 0.5) * 12
 }
