@@ -50,13 +50,13 @@
 		</tr>
 
 		<tr><td><input name="toilettank" id="toilettank" size="1" type="number" onchange="calculategpm()"/></td>
-			<td><label for="toilett">:Toilet Tank</label></td>
+			<td><label for="toilett">:Toilet (Tank)</label></td>
 			<td><input name="toiletflush" id="toiletflush" size="1" type="number" onchange="calculategpm()"/></td>
-			<td><label for="toiletflush">:Toilet Flush</label></td>
+			<td><label for="toiletflush">:Toilet (Flush)</label></td>
 			<td><input name="urinaltank" id="urinaltank" size="1" type="number" onchange="calculategpm()"/></td>
-			<td><label for="urinaltank">:Urinal Tank</label></td>
+			<td><label for="urinaltank">:Urinal (Tank)</label></td>
 			<td><input name="urinalflush" id="urinalflush" size="1" type="number" onchange="calculategpm()"/></td>
-			<td><label for="urinalflush">:Urinal Flush</label></td>
+			<td><label for="urinalflush">:Urinal (Flush)</label></td>
 		</tr>
 
 		<tr><td><input name="kitchensink" id="kitchensink" size="1" type="number" onchange="calculategpm()"/></td>
@@ -82,11 +82,13 @@
 
 		<p/>
 
-		<fieldset>
+
 			<div class = "center">
 			<input type="button" value="Refresh" class = "tenpt" onclick="calculategpm()" />
 			<input type="button" value="Clear" class = "tenpt" onclick="cleargpm()" />
 		</div>
+		<p/>
+		<fieldset>
 			<p/>
 			<p><label>Total Fixture Units: <input name="totalfixunits" value="0" id="totalfixunits" size="5" /></label></p>
 			<p><label>Calculated Needed GPM: <input name="calcgpm" value="0" id="calcgpm" size="5"/></label> gpm</p>
@@ -96,43 +98,35 @@
 
 	<p/>
 	<fieldset><legend class = "ztitle">SIZING CALCULATION</legend>
+	<fieldset>
+	<legend>Max Allowable Head Loss</legend>
 	<table>
-	<tr><td><label for="locationType">Location Type:</label></td>
-		<td><select name="locationType" id="locationType">
-				<option>Single Family Residence</option>
-				<option>Multiple Family Residence</option>
-				<option>Commercial</option>
-			</select>
-		</td>
-	</tr>
-	<tr><td><label for="suploc">Supply Location:</label></td>
-		<td><input name="suploc" id="suploc" size="20" /></td>
-	</tr>
-	<tr><td colspan="2"><label><input name="suppress" size="5" /> psi</label>, supply pressure available during demand</td></tr>
-	<tr><td><label for="demloc">Demand Location:</label></td>
-		<td><input name="demloc" id="demloc" size="20" /></td>
-	</tr>
-	<tr><td colspan="2">
-			<label><input name="demflow" size="5" /> gpm</label> demand flowing at
-			<label><input name="dempress" size="5" /> psi</label> pressure
-		</td>
-	</tr>
-	<tr><td colspan="2"><label><input name="demcalc" type="checkbox" value="Yes" checked="checked" /> Click to have Demand Size figured by DEMAND CALCULATION</label></td></tr>
+	<p/>
+	<tr><td colspan="2"><label>Supply Pressure: <input name="supplypress" id="supplypress" size="5" type="number" onchange="calculatemaxheadloss()" /> psi</label>, available during demand.</td></tr>
+	<tr><td colspan="2"><label>Customer Pressure: <input name="customerpress"  id="customerpress" size="5" type="number" onchange="calculatemaxheadloss()" /> psi</label>, required for customer.</td></tr>
+	<p/>
+	<tr><td colspan="2"><label>Elevation Diff: <input name="elevdiff"  id="elevdiff" size="5" type="number" onchange="calculatemaxheadloss()" /> ft</label>, (negative if demand location is lower than supply)</td></tr>
 	</table>
 	<p/>
+	<fieldset>
+	<label>Max Allowable Head Loss: <input name="maxheadloss" value="0" id="maxheadloss" size="5" /> ft</label>
+	</fieldset>
+</fieldset>
+<p/>
+<fieldset>
 
 	<legend>Head Loss Data</legend>
 	<table>
-	<tr><td><label for="elevdiff">Elevation Difference:</label></td>
-		<td><input name="elevdiff" id="elevdiff" size="5" value="0" /> ft (negative if demand location is lower than supply)</td></tr>
-	<tr><td><label for="pipelen">Pipe Length:</label></td>
-		<td><input name="pipelen" id="pipelen" size="5" value="0" /> ft</td></tr>
-	<tr><td><label for="otherloss">Other loss in equivalent pipe length:</label></td>
-		<td><input name="otherloss" id="otherloss" size="5" value="0" /> ft</td></tr>
-	</table>
 
+	<tr><td><label for="pipelen">Pipe Length:</label></td>
+		<td><input name="pipelen" id="pipelen" size="5" value="0" type="number" /> ft</td></tr>
+	<tr><td><label for="otherloss">Other loss in equivalent pipe length:</label></td>
+		<td><input name="otherloss" id="otherloss" size="5" value="0" type="number" /> ft</td></tr>
+	</table>
+	<p/>
 	<table>
-	<tr><th colspan="10">Number of Values &amp; fittings:</th></tr>
+	<tr><th colspan="10">Number of Valves &amp; fittings:</th></tr>
+	<p/>
 	<tr><td><input name="corpstop" id="corpstop" size="1" value="1" /></td>
 		<td><label for="corpstop">:Corp Stop</label></td>
 		<td><input name="curbstop" id="curbstop" size="1" value="1" /></td>
@@ -180,6 +174,8 @@
 	<tr><td><label for="OL">Other:</label></td>
 		<td><input name="OL" id="OL" size="5" />psi</td></tr>
 	</table>
+
+</fieldset>
 
 
 	<fieldset><legend>Design Calculation</legend>
@@ -232,7 +228,7 @@
 <div id="footer">
 	<p>Email <a href="zimmermant@bloomington.in.gov">zimmermant@bloomington.in.gov</a>
  for assistance.
-	Adapted from Magnatube Service Sizer By Z. 2020
+	Adapted from Magnatube Service Sizer. By Z. 2020
 	<!-- Process Time: 0.00020599365234375 -->
 </p>
 
