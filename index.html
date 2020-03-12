@@ -5,8 +5,7 @@
 	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta http-equiv="Content-Script-Type" content="text/javascript" />
-	<link rel="SHORTCUT ICON" href="/favicon.ico" />
-  <link rel="stylesheet" href="skin.css">
+  <link rel="stylesheet" href="css/main.css">
 	<title>Service Sizer</title>
 </head>
 <body>
@@ -84,7 +83,7 @@
 
 
 			<div class = "center">
-			<input type="button" value="Refresh" class = "tenpt" onclick="calculategpm()" />
+			<input type="button" value="Refresh" class = "tenpt" onclick="calculategpm() , calculatepipelengthheadloss()" />
 			<input type="button" value="Reset" class = "tenpt" onclick="cleargpm()" />
 		</div>
 		<p/>
@@ -114,8 +113,8 @@
 </div>
 <p/>
 	<fieldset>
-	<label>Max Allowable Head Loss: <input style = "width: 70px;" name="maxheadloss" id="maxheadloss" size="5" /> ft.</label>
-	<label> or <input style = "width: 70px;" name="maxheadlosspsi" id="maxheadlosspsi" size="5" /> psi</label>
+	<label>Max Allowable Head Loss: <input style = "width: 30px;" name="maxheadloss" id="maxheadloss" size="5" /> ft.</label>
+	<label> or <input style = "width: 30px;" name="maxheadlosspsi" id="maxheadlosspsi" size="5" /> psi</label>
 	</fieldset>
 </fieldset>
 <p/>
@@ -127,16 +126,30 @@
 			<td><input name="pervel" id="pervel" size="5" value="8" type = "number" /></td></tr>
 
 		<tr><td><label for="pipetype">Pipe Type:</label></td>
-			<td><select name="pipetype" id="pipetype">
+			<td><select name="pipetype" id="pipetype" onchange="displaypipesize()">
 					<option>Poly</option>
 					<option>Copper</option>
 					<option>Cast Iron</option>
-					<option>General</option>
+					<option>Ductile Iron</option>
+					<option>C-900</option>
 				</select>
 			</td>
-		</tr>
-		<tr><td><label for="pipesize">Pipe Size:</label></td>
-			<td><select name="pipesize" id="pipesize">
+
+		<td><label for="polypipesize" id ="polypipesizelabel" >Pipe Size:</label></td>
+			<td><select name="polypipesize" id="polypipesize" onchange="calculatepipelengthheadloss()">
+					<option>Calculate</option>
+					<option>3/4</option>
+					<option>1</option>
+					<option>1 1/4</option>
+					<option>1 1/2</option>
+					<option>2</option>
+					<option>2 1/2</option>
+					<option>3</option>
+				</select>
+			</td>
+
+		<td><label for="copperpipesize" id = copperpipesizelabel >Pipe Size:</label></td>
+			<td><select name="copperpipesize" id="copperpipesize" onchange="calculatepipelengthheadloss()">
 					<option>Calculate</option>
 					<option>3/4</option>
 					<option>1</option>
@@ -154,6 +167,54 @@
 					<option>12</option>
 				</select>
 			</td>
+
+		<td><label for="cipipesize" id = cipipesizelabel >Pipe Size:</label></td>
+			<td><select name="cipipesize" id="cipipesize" onchange="calculatepipelengthheadloss()">
+					<option>Calculate</option>
+					<option>3</option>
+					<option>4</option>
+					<option>6</option>
+					<option>8</option>
+					<option>10</option>
+					<option>12</option>
+				</select>
+			</td>
+
+		<td><label for="cipipeage" id = cipipeagelabel >Pipe Age:</label></td>
+			<td><select name="cipipeage" id="cipipeage" onchange="calculatepipelengthheadloss()">
+					<option>New</option>
+					<option>10 Years</option>
+					<option>20 Years</option>
+					<option>30 Years</option>
+					<option>40 Years</option>
+				</select>
+			</td>
+
+
+		<td><label for="dipipesize" id = dipipesizelabel >Pipe Size:</label></td>
+			<td><select name="dipipesize" id="dipipesize" onchange="calculatepipelengthheadloss()">
+					<option>Calculate</option>
+					<option>3</option>
+					<option>4</option>
+					<option>6</option>
+					<option>8</option>
+					<option>10</option>
+					<option>12</option>
+				</select>
+			</td>
+
+			<td><label for="c900pipesizelabel" id = c900pipesizelabel >Pipe Size:</label></td>
+				<td><select name="c900pipesize" id="c900pipesize" onchange="calculatepipelengthheadloss()">
+						<option>Calculate</option>
+						<option>4</option>
+						<option>6</option>
+						<option>8</option>
+						<option>10</option>
+						<option>12</option>
+					</select>
+				</td>
+
+
 		</tr>
 
 	<tr><td><label for="pipelength">Pipe Length:</label></td>
@@ -220,9 +281,11 @@
 
 	<fieldset><legend>Design Calculation</legend>
 	<table>
+		<tr><td><label for="pipediameter">Pipe Diameter:</label></td>
+			<td><input name="pipediameter" id="pipediameter" size="5"/><label> in</label></td></tr>
 		<td><label for="pipeheadloss">Head Loss</label></td>
-			<td><label><input name="pipeheadloss" style = "width: 70px;" id="pipeheadloss" size="5" type="number" /> ft</label>
-			 or <label><input style = "width: 70px;"  name="headlosspsi" id="headlosspsi" size="5" /> psi</label></td></tr>
+			<td><label><input name="pipeheadloss" style = "width: 30px;" id="pipeheadloss" size="5"/> ft</label>
+			 or <label><input style = "width: 30px;"  name="headlosspsi" id="headlosspsi" size="5" /> psi</label></td></tr>
 	</table>
 	</fieldset>
 
@@ -232,10 +295,16 @@
 <div id="footer">
 	<p>Email <a href="mailto:zimmermant@bloomington.in.gov">zimmermant@bloomington.in.gov</a>
  for assistance.
-	Adapted from Magnatube Service Sizer. By Z. 2020
+	Service Sizer. By Z. 2020
 	<!-- Process Time: 0.00020599365234375 -->
 </p>
 
 </div></body>
-<script type="text/javascript" src="calc.java"></script>
+<script type="text/javascript" src="java/tables/demand.java"></script>
+<script type="text/javascript" src="java/tables/pipes.java"></script>
+
+<script type="text/javascript" src="java/display/pipesizes.java"></script>
+
+<script type="text/javascript" src="java/calc/demandcalc.java"></script>
+<script type="text/javascript" src="java/calc/maxheadlosscalc.java"></script>
 </html>

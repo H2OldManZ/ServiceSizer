@@ -30,10 +30,10 @@ input[type=number]{
 
 table { border-collapse:collapse; }
 tr { vertical-align:top; }
-td { padding-left:.5em; padding-right:.5em; background-color:inherit; }
+/*td { padding-left:.5em; padding-right:.5em; background-color:inherit; }
 th { text-align:left; background-color:#dddddd; padding-left:.5em; padding-right:.5em; vertical-align: top; }
 th a:link,th a:visited { color:white; background-color:inherit; }
-
+*/
 ul { margin-top:0em; }
 
 /* Some styles for the splash page of applications */
@@ -42,7 +42,7 @@ ul { margin-top:0em; }
 #loginBox input { width: 10ex; }
 
 /* Top Banner stuff */
-#banner { height:62px; background:#3366cc url('citylogo-white.gif') no-repeat; padding-left:80px; }
+#banner { height:62px; background:#3366cc url('../images/citylogo-white.gif') no-repeat; padding-left:80px; }
 #banner h1 { color:white; text-align:left; padding-top:5px; }
 #banner h2 { color:white; text-align:left; font-size:12pt; }
 #banner a { color:white; text-decoration:none; }
@@ -135,3 +135,4 @@ button.printSmall { width:16px; height:16px; padding-top:16px; background: url('
 .center {text-align: center}
 .centered {margin:auto}
 .tenpt {font-size:10pt}
+.nomargin {margin:0}
