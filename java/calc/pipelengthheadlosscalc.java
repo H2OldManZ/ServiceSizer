@@ -1,32 +1,35 @@
 function calculatepipelengthheadloss() {
+
   var pipetype = document.getElementById('pipetype').value;
+  var pipesize = document.getElementById('pipesizelist').value;
+  var pipeage = "New"
+
+  if (pipesize == "Calculate") {
+    pipeheadlosshide();
+  }
+
+
+  else {  //Calculates Actual Head loss through the pipe and displays it.
+    pipeheadlossshow();
+
   if (pipetype == "Poly"){
-    var pipesize = document.getElementById('polypipesize').value;
-    var pipeage = "New"
     var pipesizefromchart = poly[pipesize];
     var pipecoef = polycoef[pipeage];
   }
   if (pipetype == "Copper"){
-    var pipesize = document.getElementById('copperpipesize').value;
-    var pipeage = "New"
     var pipesizefromchart = copper[pipesize];
     var pipecoef = coppercoef[pipeage];
   }
   if (pipetype == "Cast Iron"){
-    var pipesize = document.getElementById('cipipesize').value;
     var pipeage = document.getElementById('cipipeage').value;
     var pipesizefromchart = ci[pipesize];
     var pipecoef = cicoef[pipeage];
   }
   if (pipetype == "Ductile Iron"){
-    var pipesize = document.getElementById('dipipesize').value;
-    var pipeage = "New"
     var pipesizefromchart = di[pipesize];
     var pipecoef = dicoef[pipeage];
   }
   if (pipetype == "C-900"){
-    var pipesize = document.getElementById('c900pipesize').value;
-    var pipeage = "New"
     var pipesizefromchart = c900[pipesize];
     var pipecoef = c900coef[pipeage];
   }
@@ -40,8 +43,8 @@ function calculatepipelengthheadloss() {
   document.getElementById('pipeheadloss').value = "";
   document.getElementById('headlosspsi').value = "";
   if (isNaN(calcpipelengthheadloss) != true){
-    document.getElementById('pipeheadloss').value = calcpipelengthheadloss;
-    document.getElementById('headlosspsi').value = calcpipelengthheadloss / 2.31 ;
+    document.getElementById('pipeheadloss').value = Math.round(calcpipelengthheadloss);
+    document.getElementById('headlosspsi').value = Math.round(calcpipelengthheadloss / 2.31) ;
   }
-
+}
 }

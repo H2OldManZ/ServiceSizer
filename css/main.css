@@ -137,3 +137,4 @@ button.printSmall { width:16px; height:16px; padding-top:16px; background: url('
 .tenpt {font-size:10pt}
 .nomargin {margin:0}
 .hidden {display:none}
+.leftmargin {margin-left: 10pt}

@@ -1,3 +1,9 @@
+function sortkeys(type){
+    keys = Object.keys(type);
+    sortedkeys = keys.sort(function(a, b){return a-b});
+    return sortedkeys;
+}
+
 function displaypipesize(){
   document.getElementById('cipipeage').style.display = "none";
   document.getElementById('cipipeagelabel').style.display = "none";
@@ -9,37 +15,41 @@ function displaypipesize(){
   document.getElementById('cipipeage').style.display = "none";
   document.getElementById('cipipeagelabel').style.display = "none";
 
+
   if (display == "Poly"){
-    for (size in poly){
-    pipesizelist.add( new Option( size));
-  }
+    sortedkeys = sortkeys(poly);
 }
 
 if (display == "Copper"){
-  for (size in copper){
-  pipesizelist.add( new Option( size));
-}
+  sortedkeys = sortkeys(copper);
 
 }
   if (display == "Cast Iron"){
-    for (size in ci){
-    pipesizelist.add( new Option( size));
+    sortedkeys = sortkeys(ci);
     document.getElementById('cipipeage').style.display = "block";
     document.getElementById('cipipeagelabel').style.display = "block";
   }
 
-  }
-
   if (display == "Ductile Iron"){
-    for (size in di){
-    pipesizelist.add( new Option( size));
-  }
+    sortedkeys = sortkeys(di);
 }
 
 if (display == "C-900"){
-  for (size in c900){
-  pipesizelist.add( new Option( size));
-}
+  sortedkeys = sortkeys(c900);
 }
 
+pipesizelist.add( new Option("Calculate"));
+
+for (key in sortedkeys){
+  pipesizelist.add( new Option( sortedkeys[key]));
+}
+
+}
+
+function pipeheadlosshide(){
+  document.getElementById('pipeheadlossfieldset').style.display = "none";
+}
+
+function pipeheadlossshow(){
+  document.getElementById('pipeheadlossfieldset').style.display = "block";
 }
