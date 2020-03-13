@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="banner">
-	<h1>Service Sizer</h1><h2>City of Bloomington, Indiana</h2>
+	<h1>Utilities Water Service Sizer</h1><h2>City of Bloomington, Indiana</h2>
 </div>
 <div id="mainContent">
 	<form action="process.php" method="post">
@@ -135,53 +135,21 @@
 				</select>
 			</td>
 
-		<td><label for="polypipesize" id ="polypipesizelabel" >Pipe Size:</label></td>
-			<td><select name="polypipesize" id="polypipesize" onchange="calculatepipelengthheadloss()">
-					<option>Calculate</option>
-					<option>3/4</option>
-					<option>1</option>
-					<option>1 1/4</option>
-					<option>1 1/2</option>
-					<option>2</option>
-					<option>2 1/2</option>
-					<option>3</option>
+		<td><label for="pipesizelist" id ="polypipesizelabel" >Pipe Size:</label></td>
+			<td><select name="pipesizelist" id="pipesizelist" onchange="calculatepipelengthheadloss()">
+				<option>0.75</option>
+				<option>1</option>
+				<option>1.25</option>
+				<option>1.5</option>
+				<option>2</option>
+				<option>2.5</option>
+				<option>3</option>
 				</select>
 			</td>
 
-		<td><label for="copperpipesize" id = copperpipesizelabel >Pipe Size:</label></td>
-			<td><select name="copperpipesize" id="copperpipesize" onchange="calculatepipelengthheadloss()">
-					<option>Calculate</option>
-					<option>3/4</option>
-					<option>1</option>
-					<option>1 1/4</option>
-					<option>1 1/2</option>
-					<option>2</option>
-					<option>2 1/2</option>
-					<option>3</option>
-					<option>3 1/2</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>8</option>
-					<option>10</option>
-					<option>12</option>
-				</select>
-			</td>
 
-		<td><label for="cipipesize" id = cipipesizelabel >Pipe Size:</label></td>
-			<td><select name="cipipesize" id="cipipesize" onchange="calculatepipelengthheadloss()">
-					<option>Calculate</option>
-					<option>3</option>
-					<option>4</option>
-					<option>6</option>
-					<option>8</option>
-					<option>10</option>
-					<option>12</option>
-				</select>
-			</td>
-
-		<td><label for="cipipeage" id = cipipeagelabel >Pipe Age:</label></td>
-			<td><select name="cipipeage" id="cipipeage" onchange="calculatepipelengthheadloss()">
+		<td><label for="cipipeage" id = cipipeagelabel class = "hidden" >Pipe Age:</label></td>
+			<td><select name="cipipeage" class = "hidden" id="cipipeage" onchange="calculatepipelengthheadloss()">
 					<option>New</option>
 					<option>10 Years</option>
 					<option>20 Years</option>
@@ -189,31 +157,6 @@
 					<option>40 Years</option>
 				</select>
 			</td>
-
-
-		<td><label for="dipipesize" id = dipipesizelabel >Pipe Size:</label></td>
-			<td><select name="dipipesize" id="dipipesize" onchange="calculatepipelengthheadloss()">
-					<option>Calculate</option>
-					<option>3</option>
-					<option>4</option>
-					<option>6</option>
-					<option>8</option>
-					<option>10</option>
-					<option>12</option>
-				</select>
-			</td>
-
-			<td><label for="c900pipesizelabel" id = c900pipesizelabel >Pipe Size:</label></td>
-				<td><select name="c900pipesize" id="c900pipesize" onchange="calculatepipelengthheadloss()">
-						<option>Calculate</option>
-						<option>4</option>
-						<option>6</option>
-						<option>8</option>
-						<option>10</option>
-						<option>12</option>
-					</select>
-				</td>
-
 
 		</tr>
 
@@ -299,12 +242,16 @@
 	<!-- Process Time: 0.00020599365234375 -->
 </p>
 
-</div></body>
+</div>
+
+
+</body>
 <script type="text/javascript" src="java/tables/demand.java"></script>
 <script type="text/javascript" src="java/tables/pipes.java"></script>
-
+c
 <script type="text/javascript" src="java/display/pipesizes.java"></script>
 
 <script type="text/javascript" src="java/calc/demandcalc.java"></script>
 <script type="text/javascript" src="java/calc/maxheadlosscalc.java"></script>
+<script type="text/javascript" src="java/calc/pipelengthheadlosscalc.java"></script>
 </html>
