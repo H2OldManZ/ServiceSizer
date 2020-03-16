@@ -4,45 +4,54 @@ function sortkeys(type){
     return sortedkeys;
 }
 
+function hideall(id){
+  document.getElementById(id).style.display = "none";
+}
+
+function showall(id){
+  document.getElementById(id).style.display = "block";
+}
+
 function displaypipesize(){
-  document.getElementById('cipipeage').style.display = "none";
-  document.getElementById('cipipeagelabel').style.display = "none";
+  var tablemain = ["0.75main","1main","1.25main","1.5main","2main","2.5main","3main","3.5main","4main","5main","6main","8main","10main","12main"] ;
+  tablemain.forEach(hideall);
+
 
   var display = document.getElementById('pipetype').value;
-  var pipesizelist = document.getElementById("pipesizelist");
-  pipesizelist.options.length = 0;
 
   document.getElementById('cipipeage').style.display = "none";
   document.getElementById('cipipeagelabel').style.display = "none";
 
 
   if (display == "Poly"){
-    sortedkeys = sortkeys(poly);
+    var tablemain = ["0.75main","1main","1.25main","1.5main","2main","2.5main","3main"] ;
+    tablemain.forEach(showall);
+
 }
 
 if (display == "Copper"){
-  sortedkeys = sortkeys(copper);
+  var tablemain = ["0.75main","1main","1.25main","1.5main","2main","2.5main","3main","3.5main","4main","5main","6main","8main","10main","12main"] ;
+  tablemain.forEach(showall);
 
 }
   if (display == "Cast Iron"){
     sortedkeys = sortkeys(ci);
     document.getElementById('cipipeage').style.display = "block";
     document.getElementById('cipipeagelabel').style.display = "block";
+    var tablemain = ["3main","4main","6main","8main","10main","12main"] ;
+    tablemain.forEach(showall);
   }
 
   if (display == "Ductile Iron"){
-    sortedkeys = sortkeys(di);
+    var tablemain = ["3main","4main","6main","8main","10main","12main"] ;
+    tablemain.forEach(showall);
 }
 
 if (display == "C-900"){
-  sortedkeys = sortkeys(c900);
+  var tablemain = ["4main","6main","8main","10main","12main"] ;
+  tablemain.forEach(showall);
 }
 
-pipesizelist.add( new Option("Calculate"));
-
-for (key in sortedkeys){
-  pipesizelist.add( new Option( sortedkeys[key]));
-}
 
 }
 

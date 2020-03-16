@@ -90,7 +90,7 @@
 		<fieldset>
 			<p/>
 			<p><label>Total Fixture Units: <input name="totalfixunits" value="0" id="totalfixunits" size="5" />units</label></p>
-			<p><label>Calculated Needed GPM: <input name="calcgpm" value="0" id="calcgpm" size="5"/>gpm</label></p>
+			<p><label>Calculated Needed GPM: <input name="calcgpm" value="0" id="calcgpm" size="5" onchange="finalcalc()"/>gpm</label></p>
 		</fieldset>
 		</fieldset>
 
@@ -108,13 +108,17 @@
 	<fieldset>
 	<legend>Max Allowable Head Loss</legend>
 	<table>
-	<p/>
-	<tr><td colspan="2"><label>Supply Pressure: <input name="supplypress" id="supplypress" size="5" type="number"  value = "" onchange="calculatemaxheadloss()" /> psi</label>, available during demand.</td></tr>
-	<tr><td colspan="2"><label>Customer Min. Pressure: <input name="customerpress"  id="customerpress" size="5" type="number" value = "20" onchange="calculatemaxheadloss()" /> psi</label>, required for customer.</td></tr>
-	<p/>
-	<tr><td colspan="2"><label>Elevation Diff: <input name="elevdiff"  id="elevdiff" size="5" type="number" value = "0" onchange="calculatemaxheadloss()" /> ft</label>, (negative if demand location is lower than supply)</td></tr>
+	<tr><td><label>Supply Pressure: </label></td>
+		<td><input name="supplypress" id="supplypress" size="5" type="number"  value = "" onchange="calculatemaxheadloss()" /><label> psi</label></td>
+		<td></td></tr>
+	<tr><td><label>Customer Min. Pressure: </label></td>
+		<td><input name="customerpress"  id="customerpress" size="5" type="number" value = "20" onchange="calculatemaxheadloss()" /><label> psi</label></td>
+		<td></td></tr>
+	<tr><td><label>Elevation Diff: </label></td>
+		<td><input name="elevdiff"  id="elevdiff" size="5" type="number" value = "0" onchange="calculatemaxheadloss()" /><label> ft</label></td>
+		<td class = "wide">(negative if demand location is lower than supply)</td></tr>
 	</table>
-	<p/>
+
 	<div class = "center">
 	<input type="button" value="Refresh" class = "tenpt" onclick="calculatemaxheadloss()" />
 	<input type="button" value="Reset" class = "tenpt" onclick="clearmaxheadloss()" />
@@ -139,7 +143,7 @@
 
 
 		<tr><td><label for="pipetype">Pipe Type:</label></td>
-			<td><select name="pipetype" id="pipetype" onchange="displaypipesize()">
+			<td><select name="pipetype" id="pipetype" onchange="displaypipesize() , calcpipetable()">
 					<option>Poly</option>
 					<option>Copper</option>
 					<option>Cast Iron</option>
@@ -148,22 +152,11 @@
 				</select>
 			</td>
 
-		<td><label for="pipesizelist" id ="polypipesizelabel" class = "leftmargin">Pipe Size:</label></td>
-			<td><select name="pipesizelist" id="pipesizelist" onchange="calculatepipelengthheadloss()">
-				<option>Calculate</option>
-				<option>0.75</option>
-				<option>1</option>
-				<option>1.25</option>
-				<option>1.5</option>
-				<option>2</option>
-				<option>2.5</option>
-				<option>3</option>
-				</select>
-			</td>
+
 
 
 		<td><label for="cipipeage" id = cipipeagelabel class = "hidden" >Pipe Age:</label></td>
-			<td><select name="cipipeage" class = "hidden" id="cipipeage" onchange="calculatepipelengthheadloss()">
+			<td><select name="cipipeage" class = "hidden" id="cipipeage" onchange="calcpipetable()">
 					<option>New</option>
 					<option>10 Years</option>
 					<option>20 Years</option>
@@ -176,10 +169,108 @@
 		</tr>
  <p/>
 	<tr><td><label for="pipelength">Pipe Length:</label></td>
-		<td><input name="pipelength" id="pipelength" size="5" value="0" type="number" onchange="calculatepipelengthheadloss()" /> ft</td>
+		<td><input name="pipelength" id="pipelength" size="5" value="0" type="number" onchange="calcpipetable()" /> ft</td>
+		<table>
+			<tr>
+					 <th>Select</th>
+					 <th>Pipe Size</th>
+					 <th>Velocity</th>
+					 <th>Headloss</th>
+			 </tr>
 
+		</table>
+		<table>
+		  <tr id = "0.75main">
+		    <td><input type="radio" name="news2" value="0.75"></td>
+		    <td>0.75</td>
+				<td id = "0.75v"></td>
+				<td id = "0.75"></td>
+		  </tr>
+		  <tr id = "1main">
+		    <td><input type="radio" name="news2" value="1"></td>
+		    <td>1</td>
+		    <td id = "1v"></td>
+		    <td id = "1"></td>
+		  </tr>
+		  <tr id = "1.25main">
+		    <td><input type="radio" name="news2" value="1.25"></td>
+				<td>1.25</td>
+		    <td id = "1.25v"></td>
+		    <td id = "1.25"></td>
+		  </tr>
+		  <tr id = "1.5main">
+		    <td><input type="radio" name="news2" value="1.5"></td>
+				<td>1.5</td>
+		    <td id = "1.5v"></td>
+		    <td id = "1.5"></td>
+		  </tr>
+		  <tr id = "2main">
+		    <td><input type="radio" name="news2" value="2"></td>
+				<td>2</td>
+		    <td id = "2v"></td>
+		    <td id = "2"></td>
+		  </tr>
+		  <tr id = "2.5main">
+		    <td><input type="radio" name="news2" value="2.5"></td>
+				<td>2.5</td>
+		    <td id = "2.5v"></td>
+		    <td id = "2.5"></td>
+		  </tr>
+		  <tr id = "3main">
+		    <td><input type="radio" name="news2" value="3"></td>
+				<td>3</td>
+		    <td id = "3v"></td>
+		    <td id = "3"></td>
+		  </tr>
+			<tr id = "3.5main">
+				<td><input type="radio" name="news2" value="3.5"></td>
+				<td>3.5</td>
+				<td id = "3.5v"></td>
+				<td id = "3.5"></td>
+			</tr>
+			<tr id = "4main">
+				<td><input type="radio" name="news2" value="4"></td>
+				<td>4</td>
+				<td id = "4v"></td>
+				<td id = "4"></td>
+			</tr>
+			<tr id = "5main">
+				<td><input type="radio" name="news2" value="5"></td>
+				<td>5</td>
+				<td id = "5v"></td>
+				<td id = "5"></td>
+			</tr>
+			<tr id = "6main">
+				<td><input type="radio" name="news2" value="6"></td>
+				<td>6</td>
+				<td id = "6v"></td>
+				<td id = "6"></td>
+			</tr>
+			<tr id = "8main">
+				<td><input type="radio" name="news2" value="8"></td>
+				<td>8</td>
+				<td id = "8v"></td>
+				<td id = "8"></td>
+			</tr>
+			<tr id = "10main">
+				<td><input type="radio" name="news2" value="10"></td>
+				<td>10</td>
+				<td id = "10v"></td>
+				<td id = "10"></td>
+			</tr>
+			<tr id = "12main">
+				<td><input type="radio" name="news2" value="12"></td>
+				<td>12</td>
+				<td id = "12v"></td>
+				<td id = "12"></td>
+			</tr>
+
+		</table>
 
 	</table>
+
+
+
 </p>
 	<fieldset id = "pipeheadlossfieldset" class = "hidden">
 			<tr><td><label for="pipeheadloss">Head Loss from Pipe</label></td>
@@ -247,8 +338,8 @@
 </fieldset>
 <p/>
 <div class = "center">
-<input type="button" value="Refresh" class = "tenpt" onclick="calculatemaxheadloss()" />
-<input type="button" value="Reset" class = "tenpt" onclick="clearmaxheadloss()" />
+<input type="button" value="Refresh All" class = "tenpt" onclick="calculateall()" />
+<input type="button" value="Reset All" class = "tenpt" onclick="clearall()" />
 </div>
 
 	<fieldset><legend class = "ztitle">SUMMARY</legend>
@@ -256,8 +347,8 @@
 		<tr><td><label for="pipediameter">Pipe Diameter:</label></td>
 			<td><input name="pipediameter" id="pipediameter" size="5"/><label> in</label></td></tr>
 		<td><label for="pipeheadloss">Head Loss</label></td>
-			<td><label><input name="pipeheadloss" style = "width: 30px;" id="pipeheadloss" size="5"/> ft</label>
-			 or <label><input style = "width: 30px;"  name="headlosspsi" id="headlosspsi" size="5" /> psi</label></td></tr>
+			<td><label><input name="totalheadloss" style = "width: 30px;" id="totalheadloss" size="5"/> ft</label>
+			 or <label><input style = "width: 30px;"  name="totalheadlosspsi" id="totalheadlosspsi" size="5" /> psi</label></td></tr>
 	</table>
 	</fieldset>
 
@@ -283,4 +374,7 @@ c
 <script type="text/javascript" src="java/calc/demandcalc.java"></script>
 <script type="text/javascript" src="java/calc/maxheadlosscalc.java"></script>
 <script type="text/javascript" src="java/calc/pipelengthheadlosscalc.java"></script>
-</html>
+<script type="text/javascript" src="java/calc/finalcalc.java"></script>
+<script>calcpipetable()</script>
+<script>displaypipesize()</script>
+</html>c

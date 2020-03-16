@@ -30,6 +30,8 @@ input[type=number]{
 
 table { border-collapse:collapse; }
 tr { vertical-align:top; }
+th {width:150px; text-align:center; padding:5px }
+td { width:150px; text-align:center;padding:5px }
 /*td { padding-left:.5em; padding-right:.5em; background-color:inherit; }
 th { text-align:left; background-color:#dddddd; padding-left:.5em; padding-right:.5em; vertical-align: top; }
 th a:link,th a:visited { color:white; background-color:inherit; }
@@ -138,3 +140,6 @@ button.printSmall { width:16px; height:16px; padding-top:16px; background: url('
 .nomargin {margin:0}
 .hidden {display:none}
 .leftmargin {margin-left: 10pt}
+.floatleft {width:50%; float: left}
+.floatright {width:50%; float: right}
+.wide {width:400px}
