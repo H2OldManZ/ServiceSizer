@@ -143,3 +143,4 @@ button.printSmall { width:16px; height:16px; padding-top:16px; background: url('
 .floatleft {width:50%; float: left}
 .floatright {width:50%; float: right}
 .wide {width:400px}
+.bordered {border: 1px solid black;}

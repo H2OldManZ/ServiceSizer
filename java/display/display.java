@@ -12,6 +12,8 @@ function showall(id){
   document.getElementById(id).style.display = "block";
 }
 
+
+
 function displaypipesize(){
   var tablemain = ["0.75main","1main","1.25main","1.5main","2main","2.5main","3main","3.5main","4main","5main","6main","8main","10main","12main"] ;
   tablemain.forEach(hideall);

@@ -1,6 +1,6 @@
 function finalcalc(){
   var pipetype = document.getElementById('pipetype').value;
-  var pipesize = document.getElementById('pipesizelist').value;
+
   var pipelength = parseInt((document.getElementById('pipelength')).value);
   var calcgpm = parseInt((document.getElementById('calcgpm')).value);
   var pipecoef = 130;
@@ -28,6 +28,7 @@ function finalcalc(){
       for (key in sortedkeys){
           pipesize = chart[sortedkeys[key]];
           var calcpipelengthheadloss = 10.4 * pipelength * (calcgpm/pipecoef)**1.85 * (pipesize**-4.8655);
+
 
       }
 

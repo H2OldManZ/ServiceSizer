@@ -83,14 +83,14 @@
 
 
 			<div class = "center">
-			<input type="button" value="Refresh" class = "tenpt" onclick="calculategpm() , calculatepipelengthheadloss()" />
+			<input type="button" value="Refresh" class = "tenpt" onclick="calculategpm() , calcpipetable()" />
 			<input type="button" value="Reset" class = "tenpt" onclick="cleargpm()" />
 		</div>
 		<p/>
 		<fieldset>
 			<p/>
 			<p><label>Total Fixture Units: <input name="totalfixunits" value="0" id="totalfixunits" size="5" />units</label></p>
-			<p><label>Calculated Needed GPM: <input name="calcgpm" value="0" id="calcgpm" size="5" onchange="finalcalc()"/>gpm</label></p>
+			<p><label>Calculated Needed GPM: <input name="calcgpm" value="0" id="calcgpm" size="5" onchange="calcpipetable()"/>gpm</label></p>
 		</fieldset>
 		</fieldset>
 
@@ -100,7 +100,7 @@
 	<fieldset>
 		<legend>Max Permitted Velocity</legend>
 		<tr><td><label for="pervel">Permitted Velocity:</label></td>
-			<td><input name="pervel" id="pervel" size="5" value="8" type = "number" /></td></tr>
+			<td><input name="pervel" id="pervel" size="5" value="8" type = "number" onchange = "calcpipetable()" /></td></tr>
 
 </fieldset>
 </p>
@@ -137,152 +137,7 @@
 <fieldset>
 
 	<legend class="ztitle">HEAD LOSS CALCULATION</legend>
-	<fieldset>
-		<legend>Major Head Loss from Pipe</legend>
-	<table>
 
-
-		<tr><td><label for="pipetype">Pipe Type:</label></td>
-			<td><select name="pipetype" id="pipetype" onchange="displaypipesize() , calcpipetable()">
-					<option>Poly</option>
-					<option>Copper</option>
-					<option>Cast Iron</option>
-					<option>Ductile Iron</option>
-					<option>C-900</option>
-				</select>
-			</td>
-
-
-
-
-		<td><label for="cipipeage" id = cipipeagelabel class = "hidden" >Pipe Age:</label></td>
-			<td><select name="cipipeage" class = "hidden" id="cipipeage" onchange="calcpipetable()">
-					<option>New</option>
-					<option>10 Years</option>
-					<option>20 Years</option>
-					<option>30 Years</option>
-					<option>40 Years</option>
-				</select>
-			</td>
-
-
-		</tr>
- <p/>
-	<tr><td><label for="pipelength">Pipe Length:</label></td>
-		<td><input name="pipelength" id="pipelength" size="5" value="0" type="number" onchange="calcpipetable()" /> ft</td>
-		<table>
-			<tr>
-					 <th>Select</th>
-					 <th>Pipe Size</th>
-					 <th>Velocity</th>
-					 <th>Headloss</th>
-			 </tr>
-
-		</table>
-		<table>
-		  <tr id = "0.75main">
-		    <td><input type="radio" name="news2" value="0.75"></td>
-		    <td>0.75</td>
-				<td id = "0.75v"></td>
-				<td id = "0.75"></td>
-		  </tr>
-		  <tr id = "1main">
-		    <td><input type="radio" name="news2" value="1"></td>
-		    <td>1</td>
-		    <td id = "1v"></td>
-		    <td id = "1"></td>
-		  </tr>
-		  <tr id = "1.25main">
-		    <td><input type="radio" name="news2" value="1.25"></td>
-				<td>1.25</td>
-		    <td id = "1.25v"></td>
-		    <td id = "1.25"></td>
-		  </tr>
-		  <tr id = "1.5main">
-		    <td><input type="radio" name="news2" value="1.5"></td>
-				<td>1.5</td>
-		    <td id = "1.5v"></td>
-		    <td id = "1.5"></td>
-		  </tr>
-		  <tr id = "2main">
-		    <td><input type="radio" name="news2" value="2"></td>
-				<td>2</td>
-		    <td id = "2v"></td>
-		    <td id = "2"></td>
-		  </tr>
-		  <tr id = "2.5main">
-		    <td><input type="radio" name="news2" value="2.5"></td>
-				<td>2.5</td>
-		    <td id = "2.5v"></td>
-		    <td id = "2.5"></td>
-		  </tr>
-		  <tr id = "3main">
-		    <td><input type="radio" name="news2" value="3"></td>
-				<td>3</td>
-		    <td id = "3v"></td>
-		    <td id = "3"></td>
-		  </tr>
-			<tr id = "3.5main">
-				<td><input type="radio" name="news2" value="3.5"></td>
-				<td>3.5</td>
-				<td id = "3.5v"></td>
-				<td id = "3.5"></td>
-			</tr>
-			<tr id = "4main">
-				<td><input type="radio" name="news2" value="4"></td>
-				<td>4</td>
-				<td id = "4v"></td>
-				<td id = "4"></td>
-			</tr>
-			<tr id = "5main">
-				<td><input type="radio" name="news2" value="5"></td>
-				<td>5</td>
-				<td id = "5v"></td>
-				<td id = "5"></td>
-			</tr>
-			<tr id = "6main">
-				<td><input type="radio" name="news2" value="6"></td>
-				<td>6</td>
-				<td id = "6v"></td>
-				<td id = "6"></td>
-			</tr>
-			<tr id = "8main">
-				<td><input type="radio" name="news2" value="8"></td>
-				<td>8</td>
-				<td id = "8v"></td>
-				<td id = "8"></td>
-			</tr>
-			<tr id = "10main">
-				<td><input type="radio" name="news2" value="10"></td>
-				<td>10</td>
-				<td id = "10v"></td>
-				<td id = "10"></td>
-			</tr>
-			<tr id = "12main">
-				<td><input type="radio" name="news2" value="12"></td>
-				<td>12</td>
-				<td id = "12v"></td>
-				<td id = "12"></td>
-			</tr>
-
-		</table>
-
-	</table>
-
-
-
-</p>
-	<fieldset id = "pipeheadlossfieldset" class = "hidden">
-			<tr><td><label for="pipeheadloss">Head Loss from Pipe</label></td>
-				<td><label><input name="pipeheadloss" style = "width: 30px;" id="pipeheadloss" size="5"/> ft</label>
-				 or <label><input style = "width: 30px;"  name="headlosspsi" id="headlosspsi" size="5" /> psi</label></td></tr>
-			 </tr>
-	</fieldset>
-</fieldset>
-
-	<p/>
-	<fieldset>
-		<legend>Minor Losses Through Fittings</legend>
 	<table>
 	<tr><th colspan="10">Number of Valves &amp; fittings:</th></tr>
 
@@ -334,7 +189,169 @@
 		<td><input name="OL" id="OL" size="5" />psi</td></tr>
 	</table>
 
+
+
+
+	<table>
+		<tr><th colspan="10">Pipe Sizing and Loss:</th></tr>
+
+
+		<tr><td><label for="pipetype">Pipe Type:</label></td>
+			<td><select name="pipetype" id="pipetype" onchange="displaypipesize() , calcpipetable()">
+					<option>Poly</option>
+					<option>Copper</option>
+					<option>Cast Iron</option>
+					<option>Ductile Iron</option>
+					<option>C-900</option>
+				</select>
+			</td>
+
+
+
+
+		<td><label for="cipipeage" id = cipipeagelabel class = "hidden" >Pipe Age:</label></td>
+			<td><select name="cipipeage" class = "hidden" id="cipipeage" onchange="calcpipetable()">
+					<option>New</option>
+					<option>10 Years</option>
+					<option>20 Years</option>
+					<option>30 Years</option>
+					<option>40 Years</option>
+				</select>
+			</td>
+
+
+		</tr>
+ <p/>
+	<tr><td><label for="pipelength">Pipe Length:</label></td>
+		<td><input name="pipelength" id="pipelength" size="5" value="0" type="number" onchange="calcpipetable()" /> ft</td>
+
+		<table class = "bordered">
+			<tr>
+					 <th>Select</th>
+					 <th>Pipe Size</th>
+					 <th>Velocity</th>
+					 <th>Headloss</th>
+					 <th>PSI at Customer</th>
+			 </tr>
+
+		</table>
+		<table class = "bordered">
+		  <tr id = "0.75main">
+		    <td><input type="radio" name="news2" value="0.75"></td>
+		    <td>0.75</td>
+				<td id = "0.75v"></td>
+				<td id = "0.75"></td>
+				<td id = "0.75p"></td>
+		  </tr>
+		  <tr id = "1main">
+		    <td><input type="radio" name="news2" value="1"></td>
+		    <td>1</td>
+		    <td id = "1v"></td>
+		    <td id = "1"></td>
+				<td id = "1p"></td>
+		  </tr>
+		  <tr id = "1.25main">
+		    <td><input type="radio" name="news2" value="1.25"></td>
+				<td>1.25</td>
+		    <td id = "1.25v"></td>
+		    <td id = "1.25"></td>
+				<td id = "1.25p"></td>
+		  </tr>
+		  <tr id = "1.5main">
+		    <td><input type="radio" name="news2" value="1.5"></td>
+				<td>1.5</td>
+		    <td id = "1.5v"></td>
+		    <td id = "1.5"></td>
+				<td id = "1.5p"></td>
+		  </tr>
+		  <tr id = "2main">
+		    <td><input type="radio" name="news2" value="2"></td>
+				<td>2</td>
+		    <td id = "2v"></td>
+		    <td id = "2"></td>
+				<td id = "2p"></td>
+		  </tr>
+		  <tr id = "2.5main">
+		    <td><input type="radio" name="news2" value="2.5"></td>
+				<td>2.5</td>
+		    <td id = "2.5v"></td>
+		    <td id = "2.5"></td>
+				<td id = "2.5p"></td>
+		  </tr>
+		  <tr id = "3main">
+		    <td><input type="radio" name="news2" value="3"></td>
+				<td>3</td>
+		    <td id = "3v"></td>
+		    <td id = "3"></td>
+				<td id = "3p"></td>
+		  </tr>
+			<tr id = "3.5main">
+				<td><input type="radio" name="news2" value="3.5"></td>
+				<td>3.5</td>
+				<td id = "3.5v"></td>
+				<td id = "3.5"></td>
+				<td id = "3.5p"></td>
+			</tr>
+			<tr id = "4main">
+				<td><input type="radio" name="news2" value="4"></td>
+				<td>4</td>
+				<td id = "4v"></td>
+				<td id = "4"></td>
+				<td id = "4p"></td>
+			</tr>
+			<tr id = "5main">
+				<td><input type="radio" name="news2" value="5"></td>
+				<td>5</td>
+				<td id = "5v"></td>
+				<td id = "5"></td>
+				<td id = "5p"></td>
+			</tr>
+			<tr id = "6main">
+				<td><input type="radio" name="news2" value="6"></td>
+				<td>6</td>
+				<td id = "6v"></td>
+				<td id = "6"></td>
+				<td id = "6p"></td>
+			</tr>
+			<tr id = "8main">
+				<td><input type="radio" name="news2" value="8"></td>
+				<td>8</td>
+				<td id = "8v"></td>
+				<td id = "8"></td>
+				<td id = "8p"></td>
+			</tr>
+			<tr id = "10main">
+				<td><input type="radio" name="news2" value="10"></td>
+				<td>10</td>
+				<td id = "10v"></td>
+				<td id = "10"></td>
+				<td id = "10p"></td>
+			</tr>
+			<tr id = "12main">
+				<td><input type="radio" name="news2" value="12"></td>
+				<td>12</td>
+				<td id = "12v"></td>
+				<td id = "12"></td>
+				<td id = "12p"></td>
+			</tr>
+
+		</table>
+
+
+
+	</table>
+
+
+	<fieldset id = "pipeheadlossfieldset" class = "hidden">
+			<tr><td><label for="pipeheadloss">Head Loss from Pipe</label></td>
+				<td><label><input name="pipeheadloss" style = "width: 30px;" id="pipeheadloss" size="5"/> ft</label>
+				 or <label><input style = "width: 30px;"  name="headlosspsi" id="headlosspsi" size="5" /> psi</label></td></tr>
+			 </tr>
+	</fieldset>
 </fieldset>
+
+	<p/>
+
 </fieldset>
 <p/>
 <div class = "center">

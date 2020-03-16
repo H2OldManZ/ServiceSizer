@@ -1,10 +1,40 @@
+function setheadlosscolor(id){
+  document.getElementById(id).style.color = "black";
+  var headlosstext = parseInt(document.getElementById(id).innerHTML);
+  var maxheadlosstext = parseInt(document.getElementById("maxheadlosspsi").value);
+  if (maxheadlosstext < headlosstext){
+    document.getElementById(id).style.color = "red";
+  }
+
+}
+
+function setvelocitycolor(id){
+  document.getElementById(id).style.color = "black";
+  var velocitytext = parseInt(document.getElementById(id).innerHTML);
+  var maxvelocitytext = parseInt(document.getElementById("pervel").value);
+  if (maxvelocitytext < velocitytext){
+    document.getElementById(id).style.color = "red";
+  }
+}
+
+function setpressurecolor(id){
+  document.getElementById(id).style.color = "black";
+  var pressuretext = parseInt(document.getElementById(id).innerHTML);
+  if (pressuretext <= 20){
+    document.getElementById(id).style.color = "red";
+  }
+}
+
+
 function calculatepipelengthheadloss(pipesize) {
   pipev = pipesize + "v";
+  pipep = pipesize + "p";
   document.getElementById(pipesize).innerHTML = "NA" ;
   var pipetype = document.getElementById('pipetype').value;
   //var pipesize = document.getElementById('pipesizelist').value;
 
   var pipeage = "New"
+  var supplypsi = parseInt(document.getElementById("supplypress").value);
 
   //if (pipesize == "Calculate") {
     //pipeheadlosshide();
@@ -42,18 +72,26 @@ function calculatepipelengthheadloss(pipesize) {
 
   //var calcpipelengthheadloss = 0.002083 * pipelength * (100/130)**1.85 * (calcgpm**1.85 / pipesize**4.8655);
   var calcpipelengthheadloss = 10.4 * pipelength * (calcgpm/pipecoef)**1.85 * (pipesizefromchart**-4.8655);
+  var totalheadloss = calcpipelengthheadloss;
+
   var calcpipevelocity = 0.408 * (calcgpm / (pipesizefromchart ** 2));
+  var calcpsiatcustomer = supplypsi - (totalheadloss/2.31);
   document.getElementById('pipeheadloss').value = "";
   document.getElementById('headlosspsi').value = "";
   document.getElementById(pipesize).innerHTML = "";
   document.getElementById(pipev).innerHTML = "";
+  document.getElementById(pipep).innerHTML = "";
 
-  if (isNaN(calcpipelengthheadloss) != true){
-    document.getElementById('pipeheadloss').value = Math.round(calcpipelengthheadloss);
-    document.getElementById('headlosspsi').value = Math.round(calcpipelengthheadloss / 2.31) ;
-    document.getElementById(pipesize).innerHTML = Math.round(calcpipelengthheadloss);
+  //if (isNaN(calcpipelengthheadloss) != true){
+    document.getElementById(pipesize).innerHTML = Math.round(totalheadloss / 2.31);
     document.getElementById(pipev).innerHTML = Math.round(calcpipevelocity);
-  }
+    document.getElementById(pipep).innerHTML = Math.round(calcpsiatcustomer);
+  //}
+
+  setheadlosscolor(pipesize);
+  setvelocitycolor(pipev);
+  setpressurecolor(pipep);
+
   }
 
 
