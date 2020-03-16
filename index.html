@@ -141,52 +141,52 @@
 	<table>
 	<tr><th colspan="10">Number of Valves &amp; fittings:</th></tr>
 
-	<tr><td><input name="corpstop" id="corpstop" size="1" value="1" /></td>
+	<tr><td><input type="number" name="corpstop" id="corpstop" size="1" value="1" onchange="calcpipetable()"/></td>
 		<td><label for="corpstop">:Corp Stop</label></td>
-		<td><input name="curbstop" id="curbstop" size="1" value="1" /></td>
+		<td><input type="number" name="curbstop" id="curbstop" size="1" value="1" onchange="calcpipetable()" /></td>
 		<td><label for="curbstop">:Curb Stop</label></td>
-		<td><input name="gatevalve" id="gatevalve" size="1" /></td>
+		<td><input type="number" name="gatevalve" id="gatevalve" size="1" onchange="calcpipetable()" /></td>
 		<td><label for="gatevalve">:Gate Valve</label></td>
-		<td><input name="ballvalve" id="ballvalve" size="1" value="1" /></td>
+		<td><input type="number" name="ballvalve" id="ballvalve" size="1" value="1" onchange="calcpipetable()" /></td>
 		<td><label for="ballvalve">:Ball Valve</label></td>
-		<td><input name="anglevalv" id="anglevalv" size="1" /></td>
-		<td><label for="anglevalv">:Angle Valve</label></td>
+		<td><input type="number" name="anglevalve" id="anglevalve" size="1" onchange="calcpipetable()"/></td>
+		<td><label for="anglevalve">:Angle Valve</label></td>
 	</tr>
 
-	<tr><td><input name="bflyvalve" id="bflyvalve" size="1" /></td>
+	<tr><td><input type="number" name="bflyvalve" id="bflyvalve" size="1" onchange="calcpipetable()"/></td>
 		<td><label for="bflyvalve">:Bfly Valve</label></td>
-		<td><input name="swingchk" id="swingchk" size="1" /></td>
+		<td><input type="number" name="swingchk" id="swingchk" size="1" onchange="calcpipetable()"/></td>
 		<td><label for="swingchk">:Swing Chk</label></td>
-		<td><input name="expdcnctr" id="expdcnctr" size="1" /></td>
-		<td><label for="expdcnctr">:Side Tee</label></td>
-		<td><input name="straightt" id="straightt" size="1" /></td>
-		<td><label for="straightt">:Straight T</label></td>
-		<td><input name="stdelbow" id="stdelbow" size="1" value="1" /></td>
+		<td><input type="number" name="sidetee" id="sidetee" size="1" onchange="calcpipetable()" /></td>
+		<td><label for="sidetee">:Side Tee</label></td>
+		<td><input type="number" name="straighttee" id="straighttee" size="1" onchange="calcpipetable()" /></td>
+		<td><label for="straighttee">:Straight T</label></td>
+		<td><input type="number" name="stdelbow" id="stdelbow" size="1" value="1" onchange="calcpipetable()" /></td>
 		<td><label for="stdelbow">:Std Elbow</label></td>
 	</tr>
 
-	<tr><td><input name="longelbow" id="longelbow" size="1" /></td>
+	<tr><td><input type="number" name="longelbow" id="longelbow" size="1" onchange="calcpipetable()"/></td>
 		<td><label for="longelbow">:Long Elbow</label></td>
-		<td><input name="fortyfiveelbow" id="fortyfiveelbow" size="1" /></td>
+		<td><input type="number" name="fortyfiveelbow" id="fortyfiveelbow" size="1"onchange="calcpipetable()" /></td>
 		<td><label for="fortyfiveelbow">:45 Elbow</label></td>
-		<td><input name="yto1" id="yto1" size="1" value="1" /></td>
+		<td><input type="number" name="yto1" id="yto1" size="1" value="1" onchange="calcpipetable()" /></td>
 		<td><label for="yto1">:''Y'' to 1''</label></td>
-		<td><input name="reducer1" id="reducer1" size="1" /></td>
+		<td><input type="number" name="reducer1" id="reducer1" size="1" onchange="calcpipetable()" /></td>
 		<td><label for="reducer1">:Reducer/1''</label></td>
-		<td><input name="coupling" id="coupling" size="1" /></td>
+		<td><input type="number" name="coupling" id="coupling" size="1" onchange="calcpipetable()"/></td>
 		<td><label for="coupling">:Coupling</label></td>
 	</tr>
 	</table>
 
 	<table>
 	<tr><td><label for="BFL">Backflow Prev:</label></td>
-		<td><input name="BFL" id="BFL" size="5" />psi</td></tr>
+		<td><input type = "number" name="BFL" id="BFL" size="5" value="0" onchange="calcpipetable()" />psi</td></tr>
 	<tr><td><label for="WML">Water Meter:</label></td>
-		<td><input name="WML" id="WML" size="5" value="6.6" />psi</td></tr>
+		<td><input type = "number" name="WML" id="WML" size="5" value="6.6" onchange="calcpipetable()" />psi</td></tr>
 	<tr><td><label for="PRL">PRV:</label></td>
-		<td><input name="PRL" id="PRL" size="5" />psi</td></tr>
-	<tr><td><label for="OL">Other:</label></td>
-		<td><input name="OL" id="OL" size="5" />psi</td></tr>
+		<td><input type = "number" name="PRL" id="PRL" size="5" value="0" onchange="calcpipetable()"/>psi</td></tr>
+	<tr><td><label for="otherloss">Other:</label></td>
+		<td><input type = "number" name="otherloss" id="otherloss" value="0" size="5" onchange="calcpipetable()"/>psi</td></tr>
 	</table>
 
 
@@ -379,13 +379,14 @@
 </body>
 <script type="text/javascript" src="java/tables/demand.java"></script>
 <script type="text/javascript" src="java/tables/pipes.java"></script>
-c
+<script type="text/javascript" src="java/tables/fittings.java"></script>
+
 <script type="text/javascript" src="java/display/display.java"></script>
 
 <script type="text/javascript" src="java/calc/demandcalc.java"></script>
 <script type="text/javascript" src="java/calc/maxheadlosscalc.java"></script>
-<script type="text/javascript" src="java/calc/pipelengthheadlosscalc.java"></script>
-<script type="text/javascript" src="java/calc/finalcalc.java"></script>
+<script type="text/javascript" src="java/calc/headlosscalc.java"></script>
+<script type="text/javascript" src="java/calc/fittingcalc.java"></script>
 <script>calcpipetable()</script>
 <script>displaypipesize()</script>
 </html>c

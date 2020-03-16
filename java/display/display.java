@@ -12,6 +12,33 @@ function showall(id){
   document.getElementById(id).style.display = "block";
 }
 
+function setheadlosscolor(id){
+  document.getElementById(id).style.color = "black";
+  var headlosstext = parseInt(document.getElementById(id).innerHTML);
+  var maxheadlosstext = parseInt(document.getElementById("maxheadlosspsi").value);
+  if (maxheadlosstext < headlosstext){
+    document.getElementById(id).style.color = "red";
+  }
+
+}
+
+function setvelocitycolor(id){
+  document.getElementById(id).style.color = "black";
+  var velocitytext = parseInt(document.getElementById(id).innerHTML);
+  var maxvelocitytext = parseInt(document.getElementById("pervel").value);
+  if (maxvelocitytext < velocitytext){
+    document.getElementById(id).style.color = "red";
+  }
+}
+
+function setpressurecolor(id){
+  document.getElementById(id).style.color = "black";
+  var pressuretext = parseInt(document.getElementById(id).innerHTML);
+  if (pressuretext <= 20){
+    document.getElementById(id).style.color = "red";
+  }
+}
+
 
 
 function displaypipesize(){
