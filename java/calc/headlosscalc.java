@@ -51,15 +51,16 @@ function calculateheadloss(pipesize) {
 
   var calcminorheadloss = ((fittingk * (calcgpm ** 2)) / (383 * (pipesizefromchart ** 4)))/2.31 ;
 
-  var BFL = document.getElementById('BFL').value;
-  var WML = document.getElementById('WML').value;
-  var PRL = document.getElementById('PRL').value;
-  var other = document.getElementById('otherloss').value;
+  var backflow = parseInt(document.getElementById('backflow').value);
+  var watermeter = parseInt(document.getElementById('watermeter').value);
+  var prv = parseInt(document.getElementById('prv').value);
+  var other = parseInt(document.getElementById('otherloss').value);
+  var totalother = backflow + watermeter + prv + other;
 
-  var totalheadloss = calcpipelengthheadloss + calcminorheadloss + other;
+  var totalheadloss = calcpipelengthheadloss + calcminorheadloss + totalother;
 
   var calcpipevelocity = 0.408 * (calcgpm / (pipesizefromchart ** 2));
-  var calcpsiatcustomer = supplypsi - (totalheadloss);
+  var calcpsiatcustomer = supplypsi - totalheadloss;
 
   document.getElementById(pipesize).innerHTML = "";
   document.getElementById(pipev).innerHTML = "";
