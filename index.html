@@ -224,8 +224,14 @@
  <p/>
 	<tr><td><label for="pipelength">Pipe Length:</label></td>
 		<td><input name="pipelength" id="pipelength" size="5" value="0" type="number" onchange="calcpipetable()" /> ft</td>
+</table>
+</fieldset>
+</p>
+<fieldset>
+<legend class="ztitle">Pipe Selection</legend>
 
-		<table class = "bordered">
+
+		<table>
 			<tr>
 					 <th>Select</th>
 					 <th>Pipe Size</th>
@@ -235,7 +241,7 @@
 			 </tr>
 
 		</table>
-		<table class = "bordered">
+		<table>
 		  <tr id = "0.75main">
 		    <td><input type="radio" name="news2" value="0.75"></td>
 		    <td>0.75</td>
@@ -337,25 +343,13 @@
 
 		</table>
 
-
-
-	</table>
-
-
-	<fieldset id = "pipeheadlossfieldset" class = "hidden">
-			<tr><td><label for="pipeheadloss">Head Loss from Pipe</label></td>
-				<td><label><input name="pipeheadloss" style = "width: 30px;" id="pipeheadloss" size="5"/> ft</label>
-				 or <label><input style = "width: 30px;"  name="headlosspsi" id="headlosspsi" size="5" /> psi</label></td></tr>
-			 </tr>
-	</fieldset>
 </fieldset>
 
-	<p/>
 
-</fieldset>
+
+
 <p/>
 <div class = "center">
-<input type="button" value="Refresh All" class = "tenpt" onclick="calculateall()" />
 <input type="button" value="Reset All" class = "tenpt" onclick="clearall()" />
 </div>
 

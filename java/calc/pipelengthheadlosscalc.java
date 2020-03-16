@@ -76,8 +76,7 @@ function calculatepipelengthheadloss(pipesize) {
 
   var calcpipevelocity = 0.408 * (calcgpm / (pipesizefromchart ** 2));
   var calcpsiatcustomer = supplypsi - (totalheadloss/2.31);
-  document.getElementById('pipeheadloss').value = "";
-  document.getElementById('headlosspsi').value = "";
+
   document.getElementById(pipesize).innerHTML = "";
   document.getElementById(pipev).innerHTML = "";
   document.getElementById(pipep).innerHTML = "";
