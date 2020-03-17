@@ -18,6 +18,13 @@ function calculategpm() {  ///Calculates GPM Needs Using above tables.
         var drinkingfountain = (document.getElementById('drinkingfountain')).value;
         var washingmachine = (document.getElementById('washingmachine')).value;
         var laundrytrays = (document.getElementById('laundrytrays')).value;
+        var barsink = (document.getElementById('barsink')).value;
+        var icemachine = (document.getElementById('icemachine')).value;
+        var commercialbaysink = (document.getElementById('commercialbaysink')).value;
+        var commercialsprayer = (document.getElementById('commercialsprayer')).value;
+        var hosebib = (document.getElementById('hosebib')).value;
+        var mopsink = (document.getElementById('mopsink')).value;
+
         var addfixunits = parseInt((document.getElementById('addfixunits')).value);
         var condem = parseInt((document.getElementById('condem')).value);
 
@@ -44,8 +51,15 @@ function calculategpm() {  ///Calculates GPM Needs Using above tables.
         var t12 = fix.drinkingfountain * drinkingfountain;
         var t13 = fix.washingmachine * washingmachine;
         var t14 = fix.laundrytrays * laundrytrays;
+        var t15 = fix.barsink * barsink;
+        var t16 = fix.icemachine * icemachine;
+        var t17 = fix.commercialbaysink * commercialbaysink;
+        var t18 = fix.commercialsprayer * commercialsprayer;
+        var t19 = fix.hosebib * hosebib;
+        var t20 = fix.mopsink * mopsink;
 
-        var totalfixunits = (t1+t2+t3+t4+t5+t6+t7+t8+t9+t10+t11+t12+t13+t14)
+
+        var totalfixunits = (t1+t2+t3+t4+t5+t6+t7+t8+t9+t10+t11+t12+t13+t14+t15+t16+t17+t18+t19+t20)
         if (isNaN(addfixunits) != true){
           totalfixunits = totalfixunits + addfixunits;
         }

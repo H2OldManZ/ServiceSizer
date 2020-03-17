@@ -51,28 +51,50 @@
 		<tr><td><input name="toilettank" id="toilettank" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="toilett">:Toilet (Tank)</label></td>
 			<td><input name="toiletflush" id="toiletflush" size="1" type="number" onchange="calculategpm()"/></td>
-			<td><label for="toiletflush">:Toilet (Flush)</label></td>
+			<td><label for="toiletflush">:Toilet (Flushvalve)</label></td>
 			<td><input name="urinaltank" id="urinaltank" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="urinaltank">:Urinal (Tank)</label></td>
 			<td><input name="urinalflush" id="urinalflush" size="1" type="number" onchange="calculategpm()"/></td>
-			<td><label for="urinalflush">:Urinal (Flush)</label></td>
+			<td><label for="urinalflush">:Urinal (Flushvalve)</label></td>
 		</tr>
 
 		<tr><td><input name="kitchensink" id="kitchensink" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="kitchensink">:Kitchen Sink</label></td>
 			<td><input name="servicesink" id="servicesink" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="servicesink">:Service Sink</label></td>
-			<td><input name="dishwasher" id="dishwasher" size="1" type="number" onchange="calculategpm()"/></td>
-			<td><label for="dishwasher">:Dish Washer</label></td>
-			<td><input name="drinkingfountain" id="drinkingfountain" size="1" type="number" onchange="calculategpm()"/></td>
-			<td><label for="drinkingfountain">:Drinking Fountain</label></td>
+			<td><input name="barsink" id="barsink" size="1" type="number" onchange="calculategpm()"/></td>
+			<td><label for="barsink">:Bar Sink</label></td>
+			<td><input name="mopsink" id="mopsink" size="1" type="number" onchange="calculategpm()"/></td>
+			<td><label for="mopsink">:Mop Sink</label></td>
+
+
 		</tr>
+
+		<tr><td><input name="dishwasher" id="dishwasher" size="1" type="number" onchange="calculategpm()"/></td>
+			<td><label for="dishwasher">:Dish Washer</label></td>
+			<td><input name="commercialbaysink" id="commercialbaysink" size="1" type="number" onchange="calculategpm()"/></td>
+			<td><label for="commercialbaysink">:Commecial Multi-Bay Sink</label></td>
+			<td><input name="commercialsprayer" id="commercialsprayer" size="1" type="number" onchange="calculategpm()"/></td>
+			<td><label for="commercialsprayer">:Commercial Sprayer</label></td>
+			<td><input name="hosebib" id="hosebib" size="1" type="number" onchange="calculategpm()"/></td>
+			<td><label for="hosebib">:Hose Bib</label></td>
+
+		</tr>
+
 
 		<tr><td><input name="washingmachine" id="washingmachine" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="washingmachine">:Washing Machine</label></td>
 			<td><input name="laundrytrays" id="laundrytrays" size="1" type="number" onchange="calculategpm()"/></td>
-			<td><label for="laundrytrays">:Laundry Trays</label></td>
+			<td><label for="laundrytrays">:Laundry Tub</label></td>
+			<td><input name="drinkingfountain" id="drinkingfountain" size="1" type="number" onchange="calculategpm()"/></td>
+			<td><label for="drinkingfountain">:Drinking Fountain</label></td>
+			<td><input name="icemachine" id="icemachine" size="1" type="number" onchange="calculategpm()"/></td>
+			<td><label for="icemachine">:Ice Machine</label></td>
 		</tr>
+
+
+
+
 
 		</table>
 		<p/>
@@ -84,8 +106,7 @@
 
 			<div class = "center">
 			<input type="button" value="Refresh" class = "tenpt" onclick="calculategpm() , calcpipetable()" />
-			<input type="button" value="Reset" class = "tenpt" onclick="cleargpm()" />
-		</div>
+			
 		<p/>
 		<fieldset>
 			<p/>

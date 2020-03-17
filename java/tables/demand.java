@@ -12,7 +12,13 @@ var privatefixtures={   ///Private Fixture Unit Calc.  2021 ICC Plumbing Code.  
     "urinalflush" : 10   ,
     "washingmachine"    : 1.4  ,
     "toilettank"        : 2.2  ,
-    "toiletflush" : 6
+    "toiletflush" : 6,
+    "barsink"     : 1,
+    "hosebib" : 2.5,
+    "icemachine" :  3,
+    "commercialbaysink" : 3 ,
+    "commercialsprayer" : 3 ,
+    "mopsink"   :  1.5
 };
 
 var publicfixtures={   ///Public Fixture Unit Calc.  2021 ICC Plumbing Code.  TABLE E103.3(2)
@@ -29,7 +35,13 @@ var publicfixtures={   ///Public Fixture Unit Calc.  2021 ICC Plumbing Code.  TA
     "urinalflush"       : 10   ,
     "washingmachine"    : 4    ,
     "toilettank"        : 5    ,
-    "toiletflush"       : 10
+    "toiletflush"       : 10,
+    "barsink"     : 2,
+    "hosebib" : 5,
+    "icemachine" :  8,
+    "commercialbaysink" : 3 ,
+    "commercialsprayer" :  3,
+    "mopsink"   :   3
 };
 
 var gpm={   ///Not-Predominatly Flushometers.  2021 ICC Plumbing Code.  TABLE E103.3(3)
