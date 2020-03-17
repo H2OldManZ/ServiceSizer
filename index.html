@@ -35,9 +35,8 @@
 		</table>
 
 		<p/>
-
 		<legend>Number of Fixtures</legend>
-		<table>
+		<table width="100%">
 		<tr><td><input name="bathtub" id="bathtub" size="1" type="number" onchange="calculategpm()"/></td>
 			<td><label for="bathtub">:Bathtub</label></td>
 			<td><input name="bathroomsink" id="bathroomsink" size="1" type="number" onchange="calculategpm()"/></td>
@@ -106,7 +105,7 @@
 
 			<div class = "center">
 			<input type="button" value="Refresh" class = "tenpt" onclick="calculategpm() , calcpipetable()" />
-			
+
 		<p/>
 		<fieldset>
 			<p/>
@@ -159,7 +158,7 @@
 
 	<legend class="ztitle">HEAD LOSS CALCULATION</legend>
 
-	<table>
+	<table width = "100%">
 	<tr><th colspan="10">Number of Valves &amp; fittings:</th></tr>
 
 	<tr><td><input type="number" name="corpstop" id="corpstop" size="1" value="1" onchange="calcpipetable()"/></td>
@@ -213,11 +212,11 @@
 
 
 
-	<table>
-		<tr><th colspan="10">Pipe Sizing and Loss:</th></tr>
+	<table width = "100%">
+		<tr><th width = "30%">Pipe Sizing and Loss:</th></tr>
 
 
-		<tr><td><label for="pipetype">Pipe Type:</label></td>
+		<tr><td width = "20%"><label for="pipetype">Pipe Type:</label></td>
 			<td><select name="pipetype" id="pipetype" onchange="displaypipesize() , calcpipetable()">
 					<option>Poly</option>
 					<option>Copper</option>
@@ -252,7 +251,7 @@
 <legend class="ztitle">Pipe Selection</legend>
 
 
-		<table>
+		<table width="100%">
 			<tr>
 					 <th>Select</th>
 					 <th>Pipe Size</th>
@@ -262,7 +261,7 @@
 			 </tr>
 
 		</table>
-		<table>
+		<table width = "100%">
 		  <tr id = "0.75main">
 		    <td><input type="radio" name="news2" value="0.75"></td>
 		    <td>0.75</td>

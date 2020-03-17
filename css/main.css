@@ -28,7 +28,7 @@ input[type=number]{
     width: 50px;
 }
 
-table { border-collapse:collapse; }
+table { border-collapse:collapse; width:100% }
 tr { vertical-align:top; }
 th {width:150px; text-align:center; padding:5px }
 td { width:150px; text-align:center;padding:5px }
@@ -142,8 +142,10 @@ table.label {margin-left: 2px}
 .nomargin {margin:0}
 .hidden {display:none}
 .leftmargin {margin-left: 10pt}
+.noleftmargin {margin-left: 0pt}
 .floatleft {width:50%; float: left}
 .floatright {width:50%; float: right}
+.width {width:40px}
 .wide {width:400px}
 .bordered {border: 1px solid black;}
 
