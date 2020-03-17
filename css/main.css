@@ -127,7 +127,9 @@ button.printSmall { width:16px; height:16px; padding-top:16px; background: url('
 #warning h1 { color:inherit; background-color:red; font-size:14pt; }
 
 
-/* Various Styles for text */
+table.label {margin-left: 2px}
+
+
 .copyright { text-align:center; font-size:10pt; }
 .comments { color:red; background-color:inherit; }
 .money { text-align:right; }
