@@ -91,3 +91,7 @@ function pipeheadlosshide(){
 function pipeheadlossshow(){
   document.getElementById('pipeheadlossfieldset').style.display = "block";
 }
+
+function clearall(){
+  location.reload(true);
+}

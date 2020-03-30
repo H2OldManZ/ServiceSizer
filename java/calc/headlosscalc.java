@@ -66,12 +66,16 @@ function calculateheadloss(pipesize) {
   document.getElementById(pipev).innerHTML = "";
   document.getElementById(pipep).innerHTML = "";
 
-  //if (isNaN(calcpipelengthheadloss) != true){
+  if (calcgpm == ""){
+    document.getElementById(pipesize).innerHTML = "no gpm";
+    document.getElementById(pipev).innerHTML = "no gpm";
+    document.getElementById(pipep).innerHTML = "no gpm";
+  }
+  else{
     document.getElementById(pipesize).innerHTML = Math.round(totalheadloss);
     document.getElementById(pipev).innerHTML = Math.round(calcpipevelocity);
     document.getElementById(pipep).innerHTML = Math.round(calcpsiatcustomer);
-  //}
-
+}
   setheadlosscolor(pipesize);
   setvelocitycolor(pipev);
   setpressurecolor(pipep);
